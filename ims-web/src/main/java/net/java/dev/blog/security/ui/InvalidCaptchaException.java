@@ -1,4 +1,4 @@
-package net.java.dev.blog.ui.security;
+package net.java.dev.blog.security.ui;
 
 import org.acegisecurity.AuthenticationException;
 

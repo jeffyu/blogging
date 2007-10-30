@@ -4,7 +4,6 @@
 package net.java.dev.blog.service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -65,20 +64,6 @@ public class BlogServiceImpl implements BlogService {
 			blogs.add(newBlog);
 		}
 		return blogs;
-	}
-	
-	public Blog publishBlog(Blog blog, Label label) throws AppBizException {
-		blog.setBlogDate(new Date());
-		Blog addedBlog = blogDao.createBlog(blog);
-		if (label != null) {
-			blogDao.addLabelToBlog(addedBlog, label);
-		}
-		return addedBlog;
-	}
-
-	
-	public void removeBlog(Blog blog) throws AppBizException {
-		blogDao.removeBlog(blog);
 	}
 	
 	public Blog getBlog(long blogID) throws AppBizException {

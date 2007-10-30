@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-
+	
+	<!-- Controller definition -->
+	
 	<bean id="listController" class="net.java.dev.blog.action.BlogListController">
 		<property name="blogService">
-			<ref bean="blogService" />
+			<ref bean="wsBlogService" />
 		</property>
 	</bean>
 	
 	<bean id="blogShowController" class="net.java.dev.blog.action.BlogShowController">
 		<property name="blogService">
-			<ref bean="blogService" />
+			<ref bean="wsBlogService" />
 		</property>
 	</bean>
 	
 	<bean id="commentController" class="net.java.dev.blog.action.CommentController">
 		<property name="blogService">
-			<ref bean="blogService" />
+			<ref bean="wsBlogService" />
 		</property>
 	</bean>
 	
 	<bean id="managerController" class="net.java.dev.blog.action.ManagerController">
 		<property name="blogService">
-			<ref bean="blogService" />
+			<ref bean="wsBlogService" />
 		</property>
 	</bean>
 	
 	<bean id="blogController" class="net.java.dev.blog.action.BlogController">
 		<property name="blogService">
-			<ref bean="blogService" />
+			<ref bean="wsBlogService" />
 		</property>
 		<property name="formView">
 			<value>manager/blog</value>
@@ -44,6 +46,7 @@
 		</property>
 	</bean>
 	
+	<!-- controller definition end -->
 		
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">

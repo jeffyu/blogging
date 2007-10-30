@@ -6,6 +6,7 @@ package net.java.dev.blog.dao;
 import java.util.Date;
 import java.util.List;
 
+import net.java.dev.blog.BaseDBUnitTest;
 import net.java.dev.blog.model.User;
 
 import org.junit.Before;
@@ -19,19 +20,19 @@ import org.springframework.dao.EmptyResultDataAccessException;
 public class UserDaoTest extends BaseDBUnitTest {
 	
 	private UserDAO userDao;
-	private User user;
+	private User createdUser;
 	
 	@Before
 	public void setUp() throws Exception {
 		userDao = (UserDAO)applicationContext.getBean("userDao");
 		
-		user = new User();
-		user.setLoginName("Jeff2");
-		user.setUserName("Jeff.YuChang");
-		user.setUserEmail("jeff.yuchang@gmail.com");
-		user.setUserDate(new Date());
-		user.setUserPassword("jeff@bj");
-		user.setAuthorities("ROLE_USER,ROLE_ADMIN");
+		createdUser = new User();
+		createdUser.setLoginName("Jeff2");
+		createdUser.setUserName("Jeff.YuChang");
+		createdUser.setUserEmail("jeff.yuchang@gmail.com");
+		createdUser.setUserDate(new Date());
+		createdUser.setUserPassword("jeff@bj");
+		createdUser.setAuthoritiesFromString("ROLE_USER,ROLE_ADMIN");
 	}
 	
 	@Test
@@ -48,8 +49,8 @@ public class UserDaoTest extends BaseDBUnitTest {
 	
 	@Test
 	public void testCreateAndRemoveUser() throws Exception {
-		User addedUser = userDao.createUser(user);
-		assertEquals(user.getUserName(), userDao.getUser(addedUser.getUserID()).getUserName());
+		User addedUser = userDao.createUser(createdUser);
+		assertEquals(createdUser.getUserName(), userDao.getUser(addedUser.getUserID()).getUserName());
 		
 		userDao.removeUser(addedUser);
 		try{

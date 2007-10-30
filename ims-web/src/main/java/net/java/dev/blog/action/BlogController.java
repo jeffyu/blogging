@@ -39,8 +39,6 @@ public class BlogController extends SimpleFormController {
 		
 		blog.setUser(user);
 		
-		blogService.publishBlog(blog, null);
-		
 		return new ModelAndView(getSuccessView());
 	}
 	

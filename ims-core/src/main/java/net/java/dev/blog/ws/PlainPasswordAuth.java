@@ -39,8 +39,8 @@ public class PlainPasswordAuth implements CallbackHandler {
 	   
 	   SecurityContext securityContext = new SecurityContextImpl();
 	   securityContext.setAuthentication(authen);
-	   SecurityContextHolder.setContext(securityContext);	   
-	  
+	   SecurityContextHolder.setContext(securityContext);
+	   
 	}
 
 	public void setAuthenticationManager(AuthenticationManager authenticationManager) {

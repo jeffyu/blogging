@@ -29,7 +29,7 @@ public class User {
 	
 	private Date userDate;
 	
-	private List<String> authorities;
+	private List<String> authorities = new ArrayList<String>();
 
 	public long getUserID() {
 		return userID;
@@ -98,7 +98,7 @@ public class User {
 		return thePrivileges.toString();
 	}
 	
-	public void setAuthorities(String privileges) {
+	public void setAuthoritiesFromString(String privileges) {
 		authorities = new ArrayList<String>();
 		StringTokenizer st = new StringTokenizer(privileges, COMMA_DELIMETER);
 		while (st.hasMoreTokens()) {

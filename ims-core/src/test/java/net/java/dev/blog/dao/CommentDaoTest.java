@@ -5,6 +5,7 @@ package net.java.dev.blog.dao;
 
 import java.util.Date;
 
+import net.java.dev.blog.BaseDBUnitTest;
 import net.java.dev.blog.model.Blog;
 import net.java.dev.blog.model.Comment;
 

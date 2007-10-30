@@ -3,8 +3,8 @@
  */
 package net.java.dev.blog.dao;
 
+import net.java.dev.blog.BaseDBUnitTest;
 import net.java.dev.blog.model.Label;
-import net.java.dev.blog.model.User;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,14 +17,11 @@ import org.springframework.dao.EmptyResultDataAccessException;
 public class LabelDaoTest extends BaseDBUnitTest {
 	
 	private LabelDAO labelDao;
-	private User user;
 	
 	@Before
 	public void setUp() throws Exception {
 		labelDao = (LabelDAO)applicationContext.getBean("labelDao");
 		
-		user = new User();
-		user.setUserID(1);
 	}
 	
 	@Test

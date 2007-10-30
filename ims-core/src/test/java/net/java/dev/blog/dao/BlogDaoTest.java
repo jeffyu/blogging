@@ -6,8 +6,8 @@ package net.java.dev.blog.dao;
 import java.util.Date;
 import java.util.List;
 
+import net.java.dev.blog.BaseDBUnitTest;
 import net.java.dev.blog.model.Blog;
-import net.java.dev.blog.model.User;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,14 +21,9 @@ public class BlogDaoTest extends BaseDBUnitTest {
 	
 	private BlogDAO blogDao;
 	
-	private User user;
-	
 	@Before
 	public void setUp() throws Exception {
 		blogDao = (BlogDAO)applicationContext.getBean("blogDao");
-		
-		user = new User();
-		user.setUserID(1);
 	}
 	
 	@Test

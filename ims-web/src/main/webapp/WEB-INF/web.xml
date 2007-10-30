@@ -11,6 +11,7 @@
       	classpath:/servicesContext.xml,
       	classpath:/securityContext.xml,
       	classpath:/wsContext.xml,
+      	/WEB-INF/ws-services.xml,
       	/WEB-INF/jcaptcha.xml,
       	/WEB-INF/webappFilter.xml
       </param-value>

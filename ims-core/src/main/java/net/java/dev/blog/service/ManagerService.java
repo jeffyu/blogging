@@ -17,7 +17,6 @@ import org.acegisecurity.annotation.Secured;
 @WebService
 public interface ManagerService {
 	
-	@Secured({"ROLE_ADMIN"})
 	public User createUser(User user) throws AppBizException;
 	
 	public boolean isLoginNameAvailable(String loginName) throws AppBizException;
@@ -25,6 +24,7 @@ public interface ManagerService {
 	@Secured({"ROLE_USER"})
 	public User updateUser(User user) throws AppBizException;
 	
+	@Secured({"ROLE_USER"})
 	public void removeUser(User user) throws AppBizException;
 	
 	@Secured({"ROLE_USER"})

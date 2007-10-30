@@ -14,17 +14,10 @@
 	 <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	 <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 		
-	<jaxws:endpoint id="ws_blogService" implementorClass="net.java.dev.blog.service.BlogServiceImpl" implementor="#blogService" address="/blogs">
-		<jaxws:features>
-			<bean class="org.apache.cxf.feature.LoggingFeature" />
-		</jaxws:features>
-		<jaxws:inInterceptors>
-			<bean class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor"/>
-   			<ref bean="wss4jInConfiguration"/>
-		</jaxws:inInterceptors>
+	<jaxws:endpoint id="blogServiceEndpoint" implementorClass="net.java.dev.blog.service.BlogServiceImpl" implementor="#blogService" address="/blogs">
     </jaxws:endpoint>
     
-    <jaxws:endpoint id="ws_managerService" implementorClass="net.java.dev.blog.service.ManagerServiceImpl" implementor="#managerService" address="/users">
+    <jaxws:endpoint id="managerServiceEndpoint" implementorClass="net.java.dev.blog.service.ManagerServiceImpl" implementor="#managerService" address="/manager/blogs">
 		<jaxws:features>
 			<bean class="org.apache.cxf.feature.LoggingFeature" />
 		</jaxws:features>

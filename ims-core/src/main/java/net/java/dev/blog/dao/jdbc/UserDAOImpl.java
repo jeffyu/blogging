@@ -64,7 +64,7 @@ public class UserDAOImpl extends SimpleJdbcDaoSupport implements UserDAO{
 			user.setUserDate(rs.getDate("USER_DATE"));
 			user.setUserName(rs.getString("USER_NAME"));
 			user.setUserPassword(rs.getString("USER_PASSWORD"));
-			user.setAuthorities(rs.getString("USER_AUTHORITY"));
+			user.setAuthoritiesFromString(rs.getString("USER_AUTHORITY"));
 			return user;
 		}
 		

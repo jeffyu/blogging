@@ -12,8 +12,6 @@ import net.java.dev.blog.model.Comment;
 import net.java.dev.blog.model.Label;
 import net.java.dev.blog.model.User;
 
-import org.acegisecurity.annotation.Secured;
-
 /**
  * @author Jeff.Yu
  *
@@ -32,10 +30,5 @@ public interface BlogService {
 	public List<Blog> getBlogsByLabel(long labelID) throws AppBizException;
 	
 	public List<Label> getLabels() throws AppBizException;
-	
-	public Blog publishBlog(Blog blog, Label label) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public void removeBlog(Blog blog) throws AppBizException;
 	
 }

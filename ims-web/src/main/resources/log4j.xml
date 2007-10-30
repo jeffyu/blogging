@@ -9,7 +9,7 @@
 	</appender>
 	
 	<appender name="log.file" class="org.apache.log4j.FileAppender">
-            <param name="File"   value="D:/temp/ims.log" />
+            <param name="File"   value="ims.log" />
             <param name="Append" value="true" />	    	
             <layout class="org.apache.log4j.PatternLayout">
 				<param name="ConversionPattern" value="%d %t %-5p %c{2} - %m%n"/>

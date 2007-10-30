@@ -1,13 +1,12 @@
 /**
  * 
  */
-package net.java.dev.blog.dao;
+package net.java.dev.blog;
 
 import java.io.FileInputStream;
 
 import javax.sql.DataSource;
 
-import net.java.dev.blog.BaseTestCase;
 
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;

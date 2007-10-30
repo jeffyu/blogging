@@ -26,7 +26,7 @@
 		<property name="forceHttps" value="false" />
 	</bean>
 	
-	<bean id="authenticationProcessingFilter" class="net.java.dev.blog.ui.security.AuthProcessingFilter">
+	<bean id="authenticationProcessingFilter" class="net.java.dev.blog.security.ui.AuthProcessingFilter">
 		<property name="filterProcessesUrl" value="/security_check" />
 		<property name="authenticationFailureUrl" value="/login.jsp?login_error=1" />
 		<property name="defaultTargetUrl" value="/manager/index.do" />

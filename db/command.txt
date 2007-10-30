@@ -1,4 +1,10 @@
 run sql file in the mysql
 -------------------------
 
+populate the data
+--------
+mysql ims -u root -p < blog.sql
+
+remove the schemas
+-------------------
 mysql ims -u root -p < drop.sql

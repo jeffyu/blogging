@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:jaxws="http://cxf.apache.org/jaxws"
+	  xmlns:simple="http://cxf.apache.org/simple"
+      xmlns:soap="http://cxf.apache.org/bindings/soap"
+      xsi:schemaLocation="
+	  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	  http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+	  http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd
+	  http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	
+	 <import resource="classpath:META-INF/cxf/cxf.xml" />
+	 <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	 <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+		
+	<jaxws:endpoint id="ws_blogService" implementorClass="net.java.dev.blog.service.BlogServiceImpl" implementor="#blogService" address="/blogs">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor"/>
+   			<ref bean="wss4jInConfiguration"/>
+		</jaxws:inInterceptors>
+    </jaxws:endpoint>
+    
+    <jaxws:endpoint id="ws_managerService" implementorClass="net.java.dev.blog.service.ManagerServiceImpl" implementor="#managerService" address="/users">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor"/>
+   			<ref bean="wss4jInConfiguration"/>
+		</jaxws:inInterceptors>
+    </jaxws:endpoint>
+    
+    <bean id="wss4jInConfiguration" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+      <property name="properties">
+		<map>
+			<entry key="action" value="UsernameToken"/>
+			<entry key="passwordType" value="PasswordText" />
+			<entry>
+				<key>
+					<value>passwordCallbackRef</value>
+				</key>
+					<ref bean="serverPasswordCallback"/>
+			</entry>
+		</map>
+	 </property>
+    </bean>
+    
+    <bean id="serverPasswordCallback" class="net.java.dev.blog.ws.PlainPasswordAuth">
+    	<property name="authenticationManager">
+    		<ref bean="authenticationManager" />
+    	</property>
+    </bean>
+	
+</beans>

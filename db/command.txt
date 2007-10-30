@@ -1,0 +1,4 @@
+run sql file in the mysql
+-------------------------
+
+mysql ims -u root -p < drop.sql

@@ -1,0 +1,44 @@
+ /**
+ * sidebar css
+ */
+ 
+ #labels { 
+  line-height:normal;
+  width: 100%;
+  border: 1px solid #B9EE6B;
+  background: #B9EE6B;
+  margin-top: 20px;
+ }
+ 
+ #label-title {
+  margin: 0 0 0 0px;
+  border-bottom: 2px dotted #bbbbbb;
+  font-weight:bolder;
+  background: #719B1E url(../image/normal.gif) no-repeat;
+ }
+ 
+ #label-title span{
+  font-size: 16px;
+  font-weight:bolder;
+  margin-left: 25px;
+  color:#FFFFFF;
+ }
+ 
+ #labels ul {
+  list-style:none;
+  margin: 0px;
+  padding:0 0 0 10px;
+  }
+  
+  #labels ul li {
+  margin:0;
+  padding:2 0 1px 0px;
+  border-bottom:1px dotted black;
+  font-size:small;
+  background: url(../image/submenu.gif) no-repeat;
+  }
+  
+  #labels ul li a{
+  margin:0;
+  padding:0 0 0px 20px;
+  }

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='GB2312'?>
+<dataset>
+	<T_USER USER_ID='1' login_name='jeff' user_name='jeff.yu' user_email='jeff.yuchang@gmail.com' user_password='jeff' user_date='2007-10-01' user_authority='ROLE_USER,ROLE_ADMIN'/>
+	<T_LABEL LABEL_ID='1' label_name='JAVA' user_id='1'/>
+	<T_LABEL LABEL_ID='2' label_name='LIFE' user_id='1'/>
+	<T_LABEL LABEL_ID='3' label_name='SOA' user_id='1'/>
+	<T_LABEL LABEL_ID='4' label_name='Web Service' user_id='1'/>
+	<T_LABEL LABEL_ID='5' label_name='Erlang' user_id='1'/>
+	<T_LABEL LABEL_ID='6' label_name='Ruby On Rail' user_id='1'/>
+	<T_BLOG BLOG_ID='1' USER_ID='1' blog_title='First Blog' blog_content='This is my first blog!' blog_date='2007-10-01'/>
+	<T_BLOG BLOG_ID='2' USER_ID='1' blog_title='CXF released' blog_content='CXF has been released at 2.0.2, 2.0.3 will be released very soon!' blog_date='2007-10-02'/>
+	<T_BLOG BLOG_ID='3' USER_ID='1' blog_title='Camel 1.2 released' blog_content='This is my first blog!' blog_date='2007-10-03'/>
+	<T_BLOG BLOG_ID='4' USER_ID='1' blog_title='JCA stuff' blog_content='JCA(Java Connector Architecture) is a bridge that connect Exteranl System (i.e EIS) to App Server, so that they can communicate.
+We can split the connection into two categories.
+1. Outbound connection.
+This is App Server initialize the request to EIS. The flow is: App Server -> RA (resource Adapter) -> EIS.
+2. Inbound connection.
+This is EIS initialize the request to App Server. The flow is: EIS -> RA -> App Server.
+One thing needs to say, this is also called Message-Inflow support, (a.k.a MDB support), it is introduced in the JCA1.5. Here it considers the MDBean as an endpoint that accept the incoming Message which send from the EIS. The RA needs to establish a listener, whose responsibility is to accept Message from EIS, and then convert the Message to the MDBean acceptable Object if any, deliver the received Message to the MDBean.' blog_date='2007-10-01'/>
+	<T_BLOG_LABEL BLOG_ID='1' LABEL_ID='1' />
+	<T_BLOG_LABEL BLOG_ID='2' LABEL_ID='1' />
+	<T_BLOG_LABEL BLOG_ID='3' LABEL_ID='1' />
+	<T_BLOG_LABEL BLOG_ID='4' LABEL_ID='3' />
+	<T_COMMENT COMMENT_ID='1' BLOG_ID='1' COMMENT_USER_NAME='anson' comment_user_email='anson@gmail.com' comment_content='This is a good blog' comment_date='2007-10-01' />
+	<T_COMMENT COMMENT_ID='2' BLOG_ID='1' COMMENT_USER_NAME='yy' comment_user_email='yy@gmail.com' comment_content='2nd comment' comment_date='2007-10-01' />
+</dataset>

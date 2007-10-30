@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="listController" class="net.java.dev.blog.action.BlogListController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+	</bean>
+	
+	<bean id="blogShowController" class="net.java.dev.blog.action.BlogShowController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+	</bean>
+	
+	<bean id="commentController" class="net.java.dev.blog.action.CommentController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+	</bean>
+	
+	<bean id="managerController" class="net.java.dev.blog.action.ManagerController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+	</bean>
+	
+	<bean id="blogController" class="net.java.dev.blog.action.BlogController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+		<property name="formView">
+			<value>manager/blog</value>
+		</property>
+		<property name="successView">
+			<value>manager/welcome</value>
+		</property>
+	</bean>
+	
+	<bean id="jcaptchaImageController" class="net.java.dev.blog.action.JcaptchaImageController">
+		<property name="imageCaptchaService">
+			<ref bean="imageCaptchaService" />
+		</property>
+	</bean>
+	
+		
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+					<prop key="/index.do">listController</prop>
+					<prop key="/blog.do">blogShowController</prop>
+					<prop key="/addComment.do">commentController</prop>
+					<prop key="jcaptchaImage.do">jcaptchaImageController</prop>
+					<prop key="manager/addBlog.do">blogController</prop>
+					<prop key="manager/index.do">managerController</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,214 @@
+body {
+    text-align: center;
+	background:#edf1f3;
+	font-family: "Courier New", Courier, monospace;
+}
+
+
+a:hover{
+  color:white;
+  text-decoration:underline;
+  background:#719B1E;
+  }
+  
+a {
+  text-decoration:none;
+}
+
+a:visited {
+  text-decoration:none;  
+}
+
+#wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#contents {
+  width: 730px;
+  float: left;
+  margin: 0 0 10 0px;
+}
+ 
+#widgets {
+  float: right;
+  width: 240px;
+} 
+
+#logo{
+ background:url(../image/bg.gif);
+ border: 1px solid #B9EE6B;
+ height: 70px;
+ width: 100%;
+ text-align:center;
+}
+
+#footer{
+ clear:both;
+ text-align:center;
+ border-top: 2px solid #719B1E;
+ width: 100%; 
+ margin-top: 50px;
+}
+
+
+ 
+  
+
+  
+  /**
+  * Post css
+  */
+#post {
+  border: 2px solid #719B1E;
+  margin: 10 0 0 0px;
+  width: 100%;
+}
+
+#post h1 {
+  margin:0;
+  line-height:1.5em;
+  background:url("../image/icon_arrow.gif") no-repeat 10px .5em;
+  display:block;
+  border:1px dotted #bbbbbb;
+  border-width:0 1px 1px;
+  padding:2px 14px 2px 29px;
+  color: #333333;
+  font-size: 16px;
+  }
+  
+#post h2 {
+  border-width:0 1px 1px;
+  padding:5px 14px 1px 29px;
+  font-size: 14px;
+  }
+  
+ #post h3 {
+  background: #ded;
+  margin:0;
+  padding:2px 14px 2px 10px;
+  border:1px dotted #bbbbbb;
+  border-width:1px;
+  font-size: 12px;
+  line-height:1.5em;
+  color: #666;
+}
+
+#post h4 {
+  display: block;
+  border-bottom:2px dotted #bbbbbb;
+  color: #333333;
+  font-size: 12px;
+  }
+
+#post h4 #postTitle {
+  margin: 0px;
+  background:url("../image/icon_arrow.gif") no-repeat 10px .5em;
+  padding:2px 4px 2px 29px;
+  color: black;
+  }
+
+#post h4 #operator {
+  font-size: 10px;
+  color: blue;
+}
+
+#post h4 #postLabels {
+  color: #0033FF;
+  font-size: 8px;
+  margin: 0 20 0 10px;
+}
+
+#post h4 #postDate {
+  color: #0033FF;
+  font-size: 8px;
+  margin: 0 20 0 10px;
+}  
+  
+.post-comment {
+  margin-left: 200px;
+}
+
+
+
+/**
+* comments
+*/
+
+#comments {
+  border: 2px solid #719B1E;
+  width: 730px;
+  margin: 10 0 0 0px;
+}
+
+#comments h1 {
+ border-bottom: 1px dotted #bbbbbb;
+ margin: 5px;
+ font-size: 16px;
+}
+
+#comments h2 {
+ font-size: 14px;
+ margin: 1px;
+}
+
+#comments h3 {
+ font-size: 14px;
+ margin: 5 25 0 25px;
+}
+
+#comments h4{
+ font-size: 12px;
+ text-decoration: underline;
+ margin: 15 50 5 25px;
+}
+
+/**
+* formdiv
+*/
+
+#formdiv {
+	width: 730px;
+	margin: 10 0 0 0px;
+	border: 1px dotted #bbbbbb;
+}
+
+#formdiv h1 {
+   font-size: 16px;
+   font-weight: bolder;
+   border-bottom: 2px dotted #bbbbbb;
+}
+
+#formdiv input, #formdiv textarea {
+	padding: 5px;
+	width: 400px;
+	font-size: 14px;
+	margin: 0px 0px 10px 0px;
+	border: 2px solid #719B1E;
+}
+
+#formdiv textarea {
+	height: 90px;
+}
+
+#formdiv textarea:focus, #formdiv input:focus {
+	border: 2px solid #900;
+}
+
+#formdiv input.submit-button {
+	width: 150px;
+	margin: 0 0 0 200px;
+	font-size: 14px;
+}
+
+#formdiv label {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	width: 100px;
+	padding-top: 5px;
+	font-size: 14px;
+}
+
+ 

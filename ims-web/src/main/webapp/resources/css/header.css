@@ -1,0 +1,50 @@
+/** 
+* Tab Menu css
+*/
+#tabMenu {
+  float:left;
+  width:100%;
+  font-size:93%;
+  line-height:normal;
+  border-bottom:1px solid #B9EE6B;
+  width: 100%;
+  }
+#tabMenu ul {
+  margin:0;
+  padding:10px 0px 0 0px;
+  list-style:none;
+  }
+#tabMenu li {
+  display:inline;
+  margin:0;
+  padding:0;
+  text-align: center;
+  }
+#tabMenu a {
+  float:left;
+  background:url("../image/tabLeft.gif") no-repeat left top;
+  margin:0;
+  padding:0 0 0 4px;
+  text-decoration:none;
+  }
+#tabMenu a span {
+  float:left;
+  display:block;
+  background:url("../image/tabRight.gif") no-repeat right top;
+  padding:5px 15px 4px 6px;
+  color:black;
+  }
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabMenu a span {float:none;}
+/* End IE5-Mac hack */
+#tabMenu a:hover span {
+  color:#FFF;
+  background-position:100% -42px;
+  }
+#tabMenu a:hover {
+  background-position:0% -42px;
+  }
+#tabMenu a:hover span {
+  background-position:100% -42px;
+  }
+  

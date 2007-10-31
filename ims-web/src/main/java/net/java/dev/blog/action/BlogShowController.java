@@ -26,8 +26,7 @@ public class BlogShowController implements Controller {
 	
 	private BlogService blogService;
 	
-	public ModelAndView handleRequest(HttpServletRequest req,
-			HttpServletResponse res) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String blogID = req.getParameter("id");
 		Blog blog = blogService.getBlog(Long.valueOf(blogID));
 		

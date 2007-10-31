@@ -63,9 +63,9 @@ public class BlogDAOImpl extends SimpleJdbcDaoSupport implements BlogDAO {
 	}
 
 
-	public void removeBlog(Blog blog) {
-		getJdbcTemplate().update("delete from T_BLOG where BLOG_ID = ?", new Object[]{blog.getBlogID()});
-		getJdbcTemplate().update("delete from T_BLOG_LABEL where BLOG_ID = ?", new Object[]{blog.getBlogID()});
+	public void removeBlog(long blogID) {
+		getJdbcTemplate().update("delete from T_BLOG where BLOG_ID = ?", new Object[]{blogID});
+		getJdbcTemplate().update("delete from T_BLOG_LABEL where BLOG_ID = ?", new Object[]{blogID});
 	}
 
 	

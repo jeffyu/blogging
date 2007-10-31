@@ -24,16 +24,16 @@
 
 <div id="contents">
 
-<div id="formdiv">	
+<div id="postFormDiv">	
 <form method="post" action="updateBlog.do">
 	<label for="Title">Blog Title:</label>
 	<input type="text" name="blogTitle" />
 	
-	<label for="Message">Comment:</label>
-	<textarea name="commentContent" rows="20" cols="20"></textarea>
+	<label for="Message">Content:</label>
+	<textarea name="blogContent" rows="20" cols="120"></textarea>
 	
-	<label for="labels">Label:</label>
-	<input type="text" name="label" />
+	<label for="labels">Labels:</label>
+	<input type="text" name="labels" />
 	
 	<input type="submit" name="submit" value="Submit" class="submit-button" />
 	<input type="hidden" name="blogID" value='<c:out value="${blog.blogID}" />' />

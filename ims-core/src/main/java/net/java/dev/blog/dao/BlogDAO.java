@@ -20,7 +20,7 @@ public interface BlogDAO {
 	
 	public Blog getBlog(long blogId);
 	
-	public void removeBlog(Blog blog);
+	public void removeBlog(long blogId);
 	
 	public List<Blog> getBlogs(long userId);
 	

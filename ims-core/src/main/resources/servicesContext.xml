@@ -17,8 +17,17 @@
 	</bean>
 	
 	<bean id="managerService" class="net.java.dev.blog.service.ManagerServiceImpl">
+		<property name="commentDao">
+			<ref bean="commentDao" />
+		</property>
+		<property name="blogDao">
+			<ref bean="blogDao" />
+		</property>
 		<property name="userDao">
 			<ref bean="userDao" />
+		</property>
+		<property name="labelDao">
+			<ref bean="labelDao" />
 		</property>
 	</bean>
 	

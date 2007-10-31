@@ -30,4 +30,9 @@ public interface ManagerService {
 	@Secured({"ROLE_USER"})
 	public Blog publishBlog(Blog blog, User user) throws AppBizException;
 	
+	@Secured({"ROLE_USER"})
+	public void updateBlog(Blog blog, User user) throws AppBizException;
+	
+	@Secured({"ROLE_USER"})
+	public void removeBlog(long blogID, User user) throws AppBizException;
 }

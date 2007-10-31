@@ -28,21 +28,35 @@
 		</property>
 	</bean>
 	
-	<bean id="blogController" class="net.java.dev.blog.action.BlogController">
+	<bean id="blogManagerController" class="net.java.dev.blog.action.BlogManagerController">
+		<property name="methodNameResolver" ref="multControllerMethodResolver"/>
 		<property name="blogService">
 			<ref bean="wsBlogService" />
 		</property>
-		<property name="formView">
-			<value>manager/blog</value>
+		<property name="managerService">
+			<ref bean="wsManagerService" />
 		</property>
-		<property name="successView">
-			<value>manager/welcome</value>
+	</bean>
+	
+	<bean id="blogUpdateController" class="net.java.dev.blog.action.BlogUpdateController">
+		<property name="managerService">
+			<ref bean="wsManagerService" />
 		</property>
 	</bean>
 	
 	<bean id="jcaptchaImageController" class="net.java.dev.blog.action.JcaptchaImageController">
 		<property name="imageCaptchaService">
 			<ref bean="imageCaptchaService" />
+		</property>
+	</bean>
+	
+	<bean id="multControllerMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+		<props>
+			<prop key="/manager/createBlog.do">getBlog</prop>
+			<prop key="/manager/editBlog.do">getBlog</prop>
+			<prop key="/manager/deleteBlog.do">removeBlog</prop>
+		</props>
 		</property>
 	</bean>
 	
@@ -64,8 +78,12 @@
 					<prop key="/blog.do">blogShowController</prop>
 					<prop key="/addComment.do">commentController</prop>
 					<prop key="jcaptchaImage.do">jcaptchaImageController</prop>
-					<prop key="manager/addBlog.do">blogController</prop>
+					<prop key="manager/blogManager.do">blogManagerController</prop>
+					<prop key="manager/createBlog.do">blogManagerController</prop>
+					<prop key="manager/editBlog.do">blogManagerController</prop>
+					<prop key="manager/deleteBlog.do">blogManagerController</prop>
 					<prop key="manager/index.do">managerController</prop>
+					<prop key="manager/updateBlog.do">blogUpdateController</prop>
 			</props>
 		</property>
 	</bean>

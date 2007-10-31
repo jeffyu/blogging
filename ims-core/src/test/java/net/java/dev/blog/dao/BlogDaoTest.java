@@ -64,7 +64,7 @@ public class BlogDaoTest extends BaseDBUnitTest {
 		
 		assertEquals(blog.getBlogTitle(), blogDao.getBlog(addedBlogID).getBlogTitle());
 		
-		blogDao.removeBlog(addedBlog);
+		blogDao.removeBlog(addedBlog.getBlogID());
 		try {
 			blogDao.getBlog(addedBlogID);
 		}catch (EmptyResultDataAccessException e) {

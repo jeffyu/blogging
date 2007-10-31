@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.java.dev.blog.model.Blog;
 import net.java.dev.blog.model.User;
-import net.java.dev.blog.security.SecurityContextUtil;
+import net.java.dev.blog.security.ui.SecurityContextUtil;
 import net.java.dev.blog.service.BlogService;
 
 import org.springframework.web.servlet.ModelAndView;

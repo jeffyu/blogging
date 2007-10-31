@@ -7,7 +7,11 @@ package net.java.dev.blog.action;
  * @author Jeff.Yu
  *
  */
-public class BlogCommand {
+public class BlogForm {
+	
+	private String blogID;
+	
+	private String labels;
 	
 	private String blogTitle;
 	
@@ -28,7 +32,22 @@ public class BlogCommand {
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
 	}
-	
-	
+
+	public String getBlogID() {
+		return blogID;
+	}
+
+	public void setBlogID(String blogID) {
+		this.blogID = blogID;
+	}
+
+	public String getLabels() {
+		return labels;
+	}
+
+	public void setLabels(String labels) {
+		this.labels = labels;
+	}
+		
 	
 }

@@ -3,6 +3,8 @@
  */
 package net.java.dev.blog.service;
 
+import java.util.Date;
+
 import javax.jws.WebService;
 
 import net.java.dev.blog.dao.BlogDAO;
@@ -57,9 +59,18 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	public Blog publishBlog(Blog blog, User user) throws AppBizException {
 		blog.setUser(user);
+		blog.setBlogDate(new Date());
 		return blogDao.createBlog(blog);
 	}
 	
+	public void updateBlog(Blog blog, User user) throws AppBizException {
+		blog.setUser(user);
+		blogDao.updateBlog(blog);
+	}
+	
+	public void removeBlog(long blogID, User user) throws AppBizException {
+		blogDao.removeBlog(blogID);		
+	}
 	
 	/*********************
 	 * set method injectors
@@ -80,6 +91,7 @@ public class ManagerServiceImpl implements ManagerService {
 	public void setCommentDao(CommentDAO commentDao) {
 		this.commentDao = commentDao;
 	}
+
 	
 	
 }

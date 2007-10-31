@@ -1,7 +1,7 @@
 /**
  * 
  */
-package net.java.dev.blog.security;
+package net.java.dev.blog.security.ui;
 
 import org.acegisecurity.AccessDeniedException;
 import org.acegisecurity.Authentication;
@@ -10,6 +10,7 @@ import org.acegisecurity.context.SecurityContextHolder;
 import org.acegisecurity.userdetails.UserDetails;
 
 import net.java.dev.blog.model.User;
+import net.java.dev.blog.security.UsersDetailImpl;
 
 /**
  * @author Jeff.Yu

@@ -211,4 +211,52 @@ a:visited {
 	font-size: 14px;
 }
 
+
+/**
+* post-form div
+*/
+
+#postFormDiv {
+	width: 730px;
+	margin: 10 0 0 0px;
+	border: 1px dotted #bbbbbb;
+}
+
+#postFormDiv h1 {
+   font-size: 16px;
+   font-weight: bolder;
+   border-bottom: 2px dotted #bbbbbb;
+}
+
+#postFormDiv input, #postFormDiv textarea {
+	padding: 5px;
+	width: 400px;
+	font-size: 14px;
+	margin: 0px 0px 10px 0px;
+	border: 2px solid #719B1E;
+}
+
+#postFormDiv textarea {
+	height: 190px;
+}
+
+#postFormDiv textarea:focus, #formdiv input:focus {
+	border: 2px solid #900;
+}
+
+#postFormDiv input.submit-button {
+	width: 150px;
+	margin: 0 0 0 200px;
+	font-size: 14px;
+}
+
+#postFormDiv label {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	width: 100px;
+	padding-top: 5px;
+	font-size: 14px;
+}
+
  

@@ -39,7 +39,7 @@ public class BlogManagerController extends MultiActionController {
 		String blogId = request.getParameter("blogID");
 		User currentUser = SecurityContextUtil.getCurrentUser();
 		managerService.removeBlog(Long.valueOf(blogId), currentUser);
-		return new ModelAndView("manager/blog");
+		return new ModelAndView("redirect:index.do");
 	}
 
 	public void setBlogService(BlogService blogService) {

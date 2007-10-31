@@ -27,10 +27,11 @@
 <div id="postFormDiv">	
 <form method="post" action="updateBlog.do">
 	<label for="Title">Blog Title:</label>
-	<input type="text" name="blogTitle" />
+	<input type="text" name="blogTitle" value='<c:out value="${blog.blogTitle}"/>'/>
 	
 	<label for="Message">Content:</label>
-	<textarea name="blogContent" rows="20" cols="120"></textarea>
+	<textarea name="blogContent" rows="20" cols="120"><c:out value="${blog.blogContent}"/>
+	</textarea>
 	
 	<label for="labels">Labels:</label>
 	<input type="text" name="labels" />

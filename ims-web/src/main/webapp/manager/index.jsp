@@ -27,8 +27,8 @@
 	  <c:forEach var="blog" items="${blogs}" >
 	  <h4>
 	      <input type="checkbox" name="chk" />
-		  <a href='<%=request.getContextPath()%>/manager/deleteBlog.do?id=<c:out value="${blog.blogID}"/>'>Delete</a>
-		  <a href='<%=request.getContextPath()%>/manager/editBlog.do?id=<c:out value="${blog.blogID}"/>'>Edit</a> 
+		  <a href='<%=request.getContextPath()%>/manager/deleteBlog.do?blogID=<c:out value="${blog.blogID}"/>'>Delete</a>
+		  <a href='<%=request.getContextPath()%>/manager/editBlog.do?blogID=<c:out value="${blog.blogID}"/>'>Edit</a> 
 		  <a href='<%=request.getContextPath()%>/blog.do?id=<c:out value="${blog.blogID}"/>' target="_blank">View</a>		  
 		<span id="postTitle">
 		  <c:out value="${blog.blogTitle}" />

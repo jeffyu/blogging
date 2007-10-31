@@ -237,7 +237,8 @@ a:visited {
 }
 
 #postFormDiv textarea {
-	height: 190px;
+    width: 600px;
+	height: 390px;
 }
 
 #postFormDiv textarea:focus, #formdiv input:focus {

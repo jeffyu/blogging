@@ -27,7 +27,7 @@ public class BlogUpdateController extends SimpleFormController {
 		this.managerService = managerService;
 	}
 	
-	
+
 	public ModelAndView onSubmit(Object command) throws Exception {
 		BlogForm form = (BlogForm)command;
 		
@@ -44,7 +44,7 @@ public class BlogUpdateController extends SimpleFormController {
 			managerService.updateBlog(blog, currentUser);
 		}
 		
-		return new ModelAndView(getSuccessView());
+		return new ModelAndView("redirect:index.do");
 	}
 	
 	

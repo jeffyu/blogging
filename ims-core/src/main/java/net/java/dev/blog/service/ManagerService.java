@@ -16,23 +16,22 @@ import org.acegisecurity.annotation.Secured;
  */
 @WebService
 public interface ManagerService {
-	
-	public User createUser(User user) throws AppBizException;
-	
-	public boolean isLoginNameAvailable(String loginName) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public User updateUser(User user) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public void removeUser(User user) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public Blog publishBlog(Blog blog, User user) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public void updateBlog(Blog blog, User user) throws AppBizException;
-	
-	@Secured({"ROLE_USER"})
-	public void removeBlog(long blogID, User user) throws AppBizException;
+    User createUser(User user) throws AppBizException;
+
+    boolean isLoginNameAvailable(String loginName) throws AppBizException;
+
+    @Secured({"ROLE_USER" })
+    User updateUser(User user) throws AppBizException;
+
+    @Secured({"ROLE_USER" })
+    void removeUser(User user) throws AppBizException;
+
+    @Secured({"ROLE_USER" })
+    Blog publishBlog(Blog blog, User user) throws AppBizException;
+
+    @Secured({"ROLE_USER" })
+    void updateBlog(Blog blog, User user) throws AppBizException;
+
+    @Secured({"ROLE_USER" })
+    void removeBlog(long blogID, User user) throws AppBizException;
 }

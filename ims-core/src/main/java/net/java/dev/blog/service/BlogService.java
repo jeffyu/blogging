@@ -18,17 +18,10 @@ import net.java.dev.blog.model.User;
  */
 @WebService
 public interface BlogService {
-	
-	public List<Blog> getAllBlogs() throws AppBizException;
-	
-	public List<Blog> getBlogs(User user) throws AppBizException;
-	
-	public Blog getBlog(long blogID) throws AppBizException;
-	
-	public void addComment(Comment comment) throws AppBizException;
-	
-	public List<Blog> getBlogsByLabel(long labelID) throws AppBizException;
-	
-	public List<Label> getLabels() throws AppBizException;
-	
+    List<Blog> getAllBlogs() throws AppBizException;
+    List<Blog> getBlogs(User user) throws AppBizException;
+    Blog getBlog(long blogID) throws AppBizException;
+    void addComment(Comment comment) throws AppBizException;
+    List<Blog> getBlogsByLabel(long labelID) throws AppBizException;
+    List<Label> getLabels() throws AppBizException;
 }

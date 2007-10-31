@@ -22,30 +22,26 @@ import org.apache.ws.security.WSPasswordCallback;
  *
  */
 public class PlainPasswordAuth implements CallbackHandler {
-	
-	private AuthenticationManager authenticationManager;
-	
-	/* (non-Javadoc)
-	 * @see javax.security.auth.callback.CallbackHandler#handle(javax.security.auth.callback.Callback[])
-	 */
-	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-	   WSPasswordCallback pc = (WSPasswordCallback) callbacks[0];
-	   
-	   String user = pc.getIdentifer();
-	   String password = pc.getPassword();
-	   
-	   UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, password);
-	   Authentication authen = authenticationManager.authenticate(token);
-	   
-	   SecurityContext securityContext = new SecurityContextImpl();
-	   securityContext.setAuthentication(authen);
-	   SecurityContextHolder.setContext(securityContext);
-	   
-	}
 
-	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
-		this.authenticationManager = authenticationManager;
-	}
-	
+    private AuthenticationManager authenticationManager;
 
+    /* (non-Javadoc)
+     * @see javax.security.auth.callback.CallbackHandler#handle(javax.security.auth.callback.Callback[])
+     */
+    public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+        WSPasswordCallback pc = (WSPasswordCallback) callbacks[0];
+
+        String user = pc.getIdentifer();
+        String password = pc.getPassword();
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, password);
+        Authentication authen = authenticationManager.authenticate(token);
+
+        SecurityContext securityContext = new SecurityContextImpl();
+        securityContext.setAuthentication(authen);
+        SecurityContextHolder.setContext(securityContext);
+    }
+
+    public void setAuthenticationManager(AuthenticationManager newAuthenticationManager) {
+        this.authenticationManager = newAuthenticationManager;
+    }
 }

@@ -1,0 +1,11 @@
+<project name="ims" default="install" basedir="." xmlns:fant="antlib:com.google.ant.extensions">
+
+  <property name="fant.etc.dir" value="${ant.home}/etc/fant"/>
+
+  <import file="${fant.etc.dir}/ant-inc/master.xml"/>
+
+  <fant:modules id="project.modules" builddep="true">
+    <module name="ims-web" buildfile="build.xml"/>
+    <module name="ims-core"/>
+  </fant:modules>
+</project>

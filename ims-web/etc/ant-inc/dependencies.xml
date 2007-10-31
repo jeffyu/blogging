@@ -1,0 +1,9 @@
+<project name="dependencies" xmlns:fant="antlib:com.google.ant.extensions">
+    <fant:dependencies id="project.dependencies">
+	<dependency groupid="apache-taglibs" artifactid="standard" version="1.1.2"/>
+	<dependency groupid="jstl" artifactid="jstl" version="1.1.2"/>
+	<dependency groupid="com.octo.captcha" artifactid="jcaptcha-all" version="1.0-RC6"/>
+	<dependency groupid="net.java.dev" artifactid="ims-core" version="1.0"/>
+	<dependency groupid="org.springframework" artifactid="spring" version="2.0.6"/>
+    </fant:dependencies>
+</project>

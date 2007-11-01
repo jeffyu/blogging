@@ -1,12 +1,7 @@
 /**
- * 
+ *
  */
 package net.java.dev.blog.service;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.jws.WebService;
 
 import net.java.dev.blog.dao.BlogDAO;
 import net.java.dev.blog.dao.CommentDAO;
@@ -17,34 +12,40 @@ import net.java.dev.blog.model.Comment;
 import net.java.dev.blog.model.Label;
 import net.java.dev.blog.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.jws.WebService;
+
+
 /**
  * @author Jeff.Yu
  *
  */
-@WebService(endpointInterface = "net.java.dev.blog.service.BlogService",
-            serviceName = "blogService")
+@WebService(endpointInterface = "net.java.dev.blog.service.BlogService", serviceName = "blogService")
 public class BlogServiceImpl implements BlogService {
     private BlogDAO blogDao;
-
     private CommentDAO commentDao;
-
     private LabelDAO labelDao;
-
     private UserDAO userDao;
 
     public List<Blog> getBlogs(User user) throws AppBizException {
         List<Blog> blogs = blogDao.getBlogs(user.getUserID());
+
         for (Blog blog : blogs) {
             populateBlogProperties(blog);
         }
+
         return blogs;
     }
 
     public List<Blog> getAllBlogs() throws AppBizException {
         List<Blog> blogs = blogDao.getBlogs();
+
         for (Blog blog : blogs) {
             populateBlogProperties(blog);
         }
+
         return blogs;
     }
 
@@ -56,17 +57,20 @@ public class BlogServiceImpl implements BlogService {
 
     public List<Blog> getBlogsByLabel(long labelID) throws AppBizException {
         List<Blog> blogs = new ArrayList<Blog>();
+
         for (Blog blog : blogDao.getBlogsByLabel(labelID)) {
             Blog newBlog = blogDao.getBlog(blog.getBlogID());
             populateBlogProperties(newBlog);
             blogs.add(newBlog);
         }
+
         return blogs;
     }
 
     public Blog getBlog(long blogID) throws AppBizException {
         Blog blog = blogDao.getBlog(blogID);
         populateBlogProperties(blog);
+
         return blog;
     }
 
@@ -81,16 +85,13 @@ public class BlogServiceImpl implements BlogService {
     /***********************************************************
      **********  Set properties   ******************************
      ***********************************************************/
-
     public void setBlogDao(BlogDAO newBlogDao) {
         this.blogDao = newBlogDao;
     }
 
-
     public void setCommentDao(CommentDAO newCommentDao) {
         this.commentDao = newCommentDao;
     }
-
 
     public void setLabelDao(LabelDAO newLabelDao) {
         this.labelDao = newLabelDao;

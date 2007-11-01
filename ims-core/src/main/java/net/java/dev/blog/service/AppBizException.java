@@ -1,17 +1,14 @@
-
 package net.java.dev.blog.service;
 
+
 /**
- * 
+ *
  * @author Jeff.Yu
  *
  */
 public class AppBizException extends Exception {
-
     public static final long serialVersionUID = 20040000;
-
     private String code;
-
     private Object[] args;
 
     public AppBizException(String code, String msg) {
@@ -23,20 +20,21 @@ public class AppBizException extends Exception {
         super(code + ": " + msg, cause);
         this.code = code;
     }
-    
+
     public AppBizException(String code, Object[] args) {
-    	super(code);
-    	this.code = code;
-    	this.args = args;
+        super(code);
+        this.code = code;
+        this.args = args;
     }
-    
+
     public AppBizException(String code, Object[] args, String msg) {
         super(code + ": " + msg);
         this.code = code;
         this.args = args;
     }
 
-    public AppBizException(String code, Object[] args, String msg, Throwable cause) {
+    public AppBizException(String code, Object[] args, String msg,
+        Throwable cause) {
         super(code + ": " + msg, cause);
         this.code = code;
         this.args = args;

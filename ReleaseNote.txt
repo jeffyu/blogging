@@ -1,0 +1,22 @@
+===IMS 0.1 Release(2007/10/05)===
+Demo functionalities:
+
+ims-core module
+---------------------
+* Using JAXWS + JAXB (CXF runtime) to publish web service.
+* Using Spring acegi as web service authorization.
+* Using ws-security (plain password) as authentication.
+* Using Spring AOP transaction.
+* Using DBUnit to do the dao unit test.
+* Using easymock to do the service layer unit test.
+* Using cxf local transport to do the web service unit test.
+
+
+ims-web module
+----------------------
+* Using CXF wsdl2java (codegen tool) to generate the stub.
+* Using JAXWS customization to use the java.util.Date instead of XMLGregorianCalendar.
+* Using JAXWS + JAXB (CXF runtime) to access the web service.
+* Using Spring acegi web application filter and Jcaptcha as security implementation.
+* Using div + css as layout design implementation.
+

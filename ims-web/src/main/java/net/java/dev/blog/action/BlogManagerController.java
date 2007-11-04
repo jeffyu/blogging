@@ -32,7 +32,10 @@ public class BlogManagerController extends MultiActionController {
 	public ModelAndView getBlog(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String blogId = request.getParameter("blogID");
 		if (blogId == null || "".equals(blogId)) {
-			return new ModelAndView("manager/blog");
+			
+			Map<String, Object> data = new HashMap<String, Object>();
+			data.put("allLabels", blogService.getLabels());
+			return new ModelAndView("manager/blog", data);
 		} else {
 			Blog blog = blogService.getBlog(Long.valueOf(blogId));
 			StringBuffer blogLabels = new StringBuffer();

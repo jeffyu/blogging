@@ -30,5 +30,5 @@ public interface BlogDAO {
 
     public void addLabelToBlog(Blog blog, Label label);
 
-    public void removeLabelFromBlog(Blog blog, Label label);
+    public void removeLabelsFromBlog(Blog blog);
 }

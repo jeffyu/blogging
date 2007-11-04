@@ -7,10 +7,6 @@
   <context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-      	classpath:/daoContext.xml,
-      	classpath:/servicesContext.xml,
-      	classpath:/securityContext.xml,
-      	classpath:/wsContext.xml,
       	/WEB-INF/ws-services.xml,
       	/WEB-INF/jcaptcha.xml,
       	/WEB-INF/webappFilter.xml

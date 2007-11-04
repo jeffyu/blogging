@@ -1,15 +1,20 @@
-<?xml version="1.0"?><project>
+<?xml version="1.0"?>
+<project>
   <parent>
     <artifactId>ims-parent</artifactId>
     <groupId>net.java.dev</groupId>
     <version>1.0</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion> 
   <groupId>net.java.dev.ims</groupId>
   <artifactId>ims-core</artifactId>
   <name>ims-core</name>
   <version>1.0</version>
-  <url>http://maven.apache.org</url>
+  <packaging>war</packaging>
+  <url>http://code.google.com/p/blogging</url>
+  <build>
+    <finalName>ims-blogging</finalName>
+  </build>
   
   <dependencies>
   
@@ -30,6 +35,7 @@
 		<groupId>dbunit</groupId>
 		<artifactId>dbunit</artifactId>
 		<version>2.2</version>
+		<scope>test</scope>
     </dependency>
    
     <dependency>
@@ -104,13 +110,7 @@
 		<groupId>aspectj</groupId>
 		<artifactId>aspectjweaver</artifactId>
 		<version>${aspectj.version}</version>
-    </dependency>
-    
-    <dependency>
-		<groupId>org.apache.cxf</groupId>
-		<artifactId>cxf-bundle</artifactId>
-		<version>${cxf.version}</version>
-    </dependency>   
+    </dependency>  
 	
 	<dependency>
 		<groupId>org.acegisecurity</groupId>

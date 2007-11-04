@@ -7,20 +7,7 @@
 <body>
 <div id="wrapper">
 
-<div id="logo">
- <h1> How Much Coding is Enough! </h1>
-</div>
-
-<div id="tabMenu">
-  <ul>
-	<li><a href="<%=request.getContextPath()%>/index.do"><span>Home</span></a></li>
-	<li><a href="#"><span>News</span></a></li>
-	<li><a href="#"><span>Forum</span></a></li>
-	<li><a href="<%=request.getContextPath()%>/index.do"><span>Blog</span></a></li>
-	<li><a href="#"><span>Wiki</span></a></li>
-	<li><a href="#"><span>Shop</span></a></li>
-  </ul>
-</div>
+<jsp:include page="header.jsp" />
 
  <div id="contents">
   	<div id="post">
@@ -36,7 +23,7 @@
 		  <span id="postLabels">
           (
 		  <c:forEach var="label" items="${blog.labels}">
-            <c:out value="${label.labelName}" />
+            <c:out value="${label.labelName}" />, 
           </c:forEach>
 		  )
           </span>

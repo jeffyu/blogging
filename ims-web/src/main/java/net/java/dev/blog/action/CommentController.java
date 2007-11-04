@@ -3,10 +3,11 @@
  */
 package net.java.dev.blog.action;
 
-import net.java.dev.blog.model.Blog;
-import net.java.dev.blog.model.Comment;
-import net.java.dev.blog.model.Label;
+
+import net.java.dev.blog.service.Blog;
 import net.java.dev.blog.service.BlogService;
+import net.java.dev.blog.service.Comment;
+import net.java.dev.blog.service.Label;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;

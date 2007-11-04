@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.blog.dev.java.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="managerService" targetNamespace="http://service.blog.dev.java.net/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.blog.dev.java.net/" xmlns:tns="http://service.blog.dev.java.net/">
+<xs:complexType name="label">
+<xs:sequence>
+<xs:element name="labelID" type="xs:long"/>
+<xs:element minOccurs="0" name="labelName" type="xs:string"/>
+<xs:element minOccurs="0" name="user" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="authorities" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="loginName" type="xs:string"/>
+<xs:element minOccurs="0" name="userDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+<xs:element name="userID" type="xs:long"/>
+<xs:element minOccurs="0" name="userName" type="xs:string"/>
+<xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="blog">
+<xs:sequence>
+<xs:element minOccurs="0" name="blogContent" type="xs:string"/>
+<xs:element minOccurs="0" name="blogDate" type="xs:dateTime"/>
+<xs:element name="blogID" type="xs:long"/>
+<xs:element minOccurs="0" name="blogTitle" type="xs:string"/>
+<xs:element name="commentCount" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="comments" nillable="true" type="tns:comment"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="labels" nillable="true" type="tns:label"/>
+<xs:element minOccurs="0" name="user" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="comment">
+<xs:sequence>
+<xs:element minOccurs="0" name="blog" type="tns:blog"/>
+<xs:element minOccurs="0" name="commentContent" type="xs:string"/>
+<xs:element minOccurs="0" name="commentDate" type="xs:dateTime"/>
+<xs:element name="commentID" type="xs:long"/>
+<xs:element minOccurs="0" name="commentUserEmail" type="xs:string"/>
+<xs:element minOccurs="0" name="commentUserName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="AppBizException" type="tns:AppBizException"/>
+<xs:complexType name="AppBizException">
+<xs:sequence>
+<xs:element name="serialVersionUID" nillable="true" type="xs:long"/>
+<xs:element name="code" nillable="true" type="xs:string"/>
+<xs:element name="args" nillable="true" type="ns0:anyTypeArray"/>
+<xs:element name="message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="removeUser" type="tns:removeUser"/>
+<xs:complexType name="removeUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="removeUserResponse" type="tns:removeUserResponse"/>
+<xs:complexType name="removeUserResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:element name="removeBlog" type="tns:removeBlog"/>
+<xs:complexType name="removeBlog">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+<xs:element minOccurs="0" name="arg1" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="removeBlogResponse" type="tns:removeBlogResponse"/>
+<xs:complexType name="removeBlogResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:element name="createUser" type="tns:createUser"/>
+<xs:complexType name="createUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="createUserResponse" type="tns:createUserResponse"/>
+<xs:complexType name="createUserResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="isLoginNameAvailable" type="tns:isLoginNameAvailable"/>
+<xs:complexType name="isLoginNameAvailable">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="isLoginNameAvailableResponse" type="tns:isLoginNameAvailableResponse"/>
+<xs:complexType name="isLoginNameAvailableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="removeComment" type="tns:removeComment"/>
+<xs:complexType name="removeComment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="removeCommentResponse" type="tns:removeCommentResponse"/>
+<xs:complexType name="removeCommentResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:element name="getLabels" type="tns:getLabels"/>
+<xs:complexType name="getLabels">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getLabelsResponse" type="tns:getLabelsResponse"/>
+<xs:complexType name="getLabelsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:label"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getUserNoPassword" type="tns:getUserNoPassword"/>
+<xs:complexType name="getUserNoPassword">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getUserNoPasswordResponse" type="tns:getUserNoPasswordResponse"/>
+<xs:complexType name="getUserNoPasswordResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="publishBlog" type="tns:publishBlog"/>
+<xs:complexType name="publishBlog">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:blog"/>
+<xs:element minOccurs="0" name="arg1" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="publishBlogResponse" type="tns:publishBlogResponse"/>
+<xs:complexType name="publishBlogResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:blog"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="updateUser" type="tns:updateUser"/>
+<xs:complexType name="updateUser">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="updateUserResponse" type="tns:updateUserResponse"/>
+<xs:complexType name="updateUserResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="updateBlog" type="tns:updateBlog"/>
+<xs:complexType name="updateBlog">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:blog"/>
+<xs:element minOccurs="0" name="arg1" type="tns:user"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="updateBlogResponse" type="tns:updateBlogResponse"/>
+<xs:complexType name="updateBlogResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://jaxb.dev.java.net/array">
+<xs:complexType final="#all" name="anyTypeArray">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="AppBizException">
+    <wsdl:part element="tns:AppBizException" name="AppBizException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part element="tns:createUserResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLabels">
+    <wsdl:part element="tns:getLabels" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserNoPasswordResponse">
+    <wsdl:part element="tns:getUserNoPasswordResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUser">
+    <wsdl:part element="tns:createUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeBlogResponse">
+    <wsdl:part element="tns:removeBlogResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLabelsResponse">
+    <wsdl:part element="tns:getLabelsResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBlogResponse">
+    <wsdl:part element="tns:updateBlogResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUserNoPassword">
+    <wsdl:part element="tns:getUserNoPassword" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeBlog">
+    <wsdl:part element="tns:removeBlog" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeUserResponse">
+    <wsdl:part element="tns:removeUserResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeCommentResponse">
+    <wsdl:part element="tns:removeCommentResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isLoginNameAvailableResponse">
+    <wsdl:part element="tns:isLoginNameAvailableResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeComment">
+    <wsdl:part element="tns:removeComment" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBlog">
+    <wsdl:part element="tns:updateBlog" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUser">
+    <wsdl:part element="tns:updateUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeUser">
+    <wsdl:part element="tns:removeUser" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateUserResponse">
+    <wsdl:part element="tns:updateUserResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isLoginNameAvailable">
+    <wsdl:part element="tns:isLoginNameAvailable" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="publishBlog">
+    <wsdl:part element="tns:publishBlog" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="publishBlogResponse">
+    <wsdl:part element="tns:publishBlogResponse" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ManagerService">
+    <wsdl:operation name="removeUser">
+      <wsdl:input message="tns:removeUser" name="removeUser">
+    </wsdl:input>
+      <wsdl:output message="tns:removeUserResponse" name="removeUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeBlog">
+      <wsdl:input message="tns:removeBlog" name="removeBlog">
+    </wsdl:input>
+      <wsdl:output message="tns:removeBlogResponse" name="removeBlogResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <wsdl:input message="tns:createUser" name="createUser">
+    </wsdl:input>
+      <wsdl:output message="tns:createUserResponse" name="createUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isLoginNameAvailable">
+      <wsdl:input message="tns:isLoginNameAvailable" name="isLoginNameAvailable">
+    </wsdl:input>
+      <wsdl:output message="tns:isLoginNameAvailableResponse" name="isLoginNameAvailableResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeComment">
+      <wsdl:input message="tns:removeComment" name="removeComment">
+    </wsdl:input>
+      <wsdl:output message="tns:removeCommentResponse" name="removeCommentResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLabels">
+      <wsdl:input message="tns:getLabels" name="getLabels">
+    </wsdl:input>
+      <wsdl:output message="tns:getLabelsResponse" name="getLabelsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserNoPassword">
+      <wsdl:input message="tns:getUserNoPassword" name="getUserNoPassword">
+    </wsdl:input>
+      <wsdl:output message="tns:getUserNoPasswordResponse" name="getUserNoPasswordResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishBlog">
+      <wsdl:input message="tns:publishBlog" name="publishBlog">
+    </wsdl:input>
+      <wsdl:output message="tns:publishBlogResponse" name="publishBlogResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:input message="tns:updateUser" name="updateUser">
+    </wsdl:input>
+      <wsdl:output message="tns:updateUserResponse" name="updateUserResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateBlog">
+      <wsdl:input message="tns:updateBlog" name="updateBlog">
+    </wsdl:input>
+      <wsdl:output message="tns:updateBlogResponse" name="updateBlogResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppBizException" name="AppBizException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="managerServiceSoapBinding" type="tns:ManagerService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="removeUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeBlog">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeBlog">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeBlogResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isLoginNameAvailable">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isLoginNameAvailable">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isLoginNameAvailableResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeComment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removeComment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeCommentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLabels">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLabels">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLabelsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserNoPassword">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getUserNoPassword">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserNoPasswordResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="publishBlog">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="publishBlog">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="publishBlogResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateBlog">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateBlog">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateBlogResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppBizException">
+        <soap:fault name="AppBizException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="managerService">
+    <wsdl:port binding="tns:managerServiceSoapBinding" name="ManagerServiceImplPort">
+      <soap:address location="http://localhost:8080/ims-blogging/services/manager/blogs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

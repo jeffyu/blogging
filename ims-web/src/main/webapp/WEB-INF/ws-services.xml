@@ -14,10 +14,13 @@
 	 <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	 <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 		
-	<jaxws:client id="wsBlogService" serviceClass="net.java.dev.blog.service.BlogService" address="http://localhost:8080/ims/services/blogs">
+	<jaxws:client id="wsBlogService" serviceClass="net.java.dev.blog.service.BlogService" address="http://localhost:8080/ims-blogging/services/blogs">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
 	</jaxws:client>
 	
-	<jaxws:client id="wsManagerService" serviceClass="net.java.dev.blog.service.ManagerService" address="http://localhost:8080/ims/services/manager/blogs">
+	<jaxws:client id="wsManagerService" serviceClass="net.java.dev.blog.service.ManagerService" address="http://localhost:8080/ims-blogging/services/manager/blogs">
 		<jaxws:features>
 			<bean class="org.apache.cxf.feature.LoggingFeature" />
 		</jaxws:features>

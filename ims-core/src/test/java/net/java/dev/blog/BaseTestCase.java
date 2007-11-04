@@ -47,6 +47,7 @@ public class BaseTestCase extends Assert {
 		user.setUserPassword("jeff");
 				
 		firstBlog = new Blog();
+		firstBlog.setBlogID(BLOG_ID);
 		firstBlog.setUser(user);
 		
 	}

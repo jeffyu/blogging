@@ -1,4 +1,5 @@
-<?xml version="1.0"?><project>
+<?xml version="1.0"?>
+<project>
   <parent>
     <artifactId>ims-parent</artifactId>
     <groupId>net.java.dev</groupId>
@@ -11,19 +12,52 @@
   <packaging>war</packaging>
   <name>ims-web</name>
   <version>1.0</version>
-  <url>http://maven.apache.org</url>
-  <build>
-    <finalName>ims</finalName>
-  </build>
+  <url>http://code.google.com/p/blogging</url>
+  
   
   <dependencies>
   
 	<dependency>
-			<groupId>net.java.dev.ims</groupId>
-			<artifactId>ims-core</artifactId>
-			<version>${pom.version}</version>
-			<scope>compile</scope>
-	</dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-core</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-bindings-soap</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-simple</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-tools-common</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-transports-http</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-ws-security</artifactId>
+        <version>${cxf.version}</version>
+    </dependency>  
     
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -62,5 +96,93 @@
       </exclusions>
     </dependency>
 	
+	<dependency>
+		<groupId>aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectj.version}</version>
+    </dependency>  
+	
+	<dependency>
+		<groupId>org.acegisecurity</groupId>
+		<artifactId>acegi-security</artifactId>
+		<version>${acegi.version}</version>
+    </dependency>
+
+	<dependency>
+		<groupId>org.acegisecurity</groupId>
+		<artifactId>acegi-security-tiger</artifactId>
+		<version>${acegi.version}</version>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.apache.geronimo.specs</groupId>
+		<artifactId>geronimo-servlet_2.5_spec</artifactId>
+		<version>1.1-M1</version>
+		<scope>provided</scope>
+    </dependency> 
+	
   </dependencies>
+  
+   <build>
+    <finalName>ims</finalName>    
+        <plugins>
+           <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${basedir}/target/generated/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+             </plugin>
+             <plugin>
+               <groupId>org.apache.cxf</groupId>
+                   <artifactId>cxf-codegen-plugin</artifactId>
+                   <version>${cxf.version}</version>
+                   <executions>
+						<execution>
+							<id>generate-sources</id>
+							<phase>generate-sources</phase>
+							<configuration>
+								<sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+								<wsdlOptions>
+									<wsdlOption>
+										<wsdl>${basedir}/src/main/resources/wsdl/blogs.wsdl</wsdl>
+									</wsdlOption>
+									<wsdlOption>
+										<wsdl>${basedir}/src/main/resources/wsdl/blogManager.wsdl</wsdl>
+										  <extraargs>
+										    <extraarg>-b</extraarg>
+										    <extraarg>${basedir}/src/main/resources/wsdl/ims-binding.xml</extraarg>                              
+										  </extraargs>
+									</wsdlOption>
+								</wsdlOptions>
+							</configuration>
+							<goals>
+								<goal>wsdl2java</goal>
+							</goals>
+						</execution>
+                    </executions>
+               </plugin>
+          </plugins>    
+  </build>
+  
+    <repositories>
+	    <repository>
+	      <id>apache.incubating.releases</id>
+	      <name>Apache Incubating Release Distribution Repository</name>
+	      <url>http://people.apache.org/repo/m2-incubating-repository</url>
+	    </repository>
+    </repositories>
+  
 </project>

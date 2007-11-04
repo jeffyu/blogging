@@ -56,6 +56,7 @@
 			<prop key="/manager/createBlog.do">getBlog</prop>
 			<prop key="/manager/editBlog.do">getBlog</prop>
 			<prop key="/manager/deleteBlog.do">removeBlog</prop>
+			<prop key="/manager/deleteComment.do">removeComment</prop>
 		</props>
 		</property>
 	</bean>
@@ -82,6 +83,7 @@
 					<prop key="manager/createBlog.do">blogManagerController</prop>
 					<prop key="manager/editBlog.do">blogManagerController</prop>
 					<prop key="manager/deleteBlog.do">blogManagerController</prop>
+					<prop key="manager/deleteComment.do">blogManagerController</prop>
 					<prop key="manager/index.do">managerController</prop>
 					<prop key="manager/updateBlog.do">blogUpdateController</prop>
 			</props>

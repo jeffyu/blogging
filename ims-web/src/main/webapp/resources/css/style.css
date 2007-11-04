@@ -164,6 +164,11 @@ a:visited {
  margin: 15 50 5 25px;
 }
 
+#comments h2 #deleteComment {
+	margin: 0 10 0 500px;
+	text-align: right;
+}
+
 /**
 * formdiv
 */
@@ -258,6 +263,15 @@ a:visited {
 	width: 100px;
 	padding-top: 5px;
 	font-size: 14px;
+}
+
+#postFormDiv  h4{
+   margin: 0 0 5 0px;
+}
+
+#postFormDiv  h4 #allLabels{
+   font-size: 12px;
+   margin: 5 10 5 110px;
 }
 
  

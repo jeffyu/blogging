@@ -9,7 +9,12 @@
   background: #B9EE6B;
   margin-top: 10px;
  }
-  
+ 
+#profile p {
+  font-size: 14px;
+  margin: 5px;
+}
+ 
  #profile h1{
   margin: 0 0 0 0px;
   border-bottom: 2px dotted #bbbbbb;

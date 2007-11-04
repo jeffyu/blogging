@@ -61,4 +61,16 @@ public class LabelDaoTest extends BaseDBUnitTest {
 		
 	}
 	
+	@Test
+	public void testGetLabelByLabelName() throws Exception {
+		Label label = labelDao.getLabel("SOA", user.getUserID());
+		assertEquals("SOA", label.getLabelName());
+	}
+	
+	@Test
+	public void testGetNullByLabelName() throws Exception {
+		Label label = labelDao.getLabel("SOAAAAAA", user.getUserID());
+		assertNull(label);
+	}
+	
 }

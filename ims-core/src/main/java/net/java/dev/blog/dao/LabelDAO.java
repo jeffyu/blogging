@@ -26,4 +26,7 @@ public interface LabelDAO {
     public Label getLabel(long labelID, long userID);
 
     public List<Label> getBlogsLabel(long blogID);
+    
+    public Label getLabel(String labelName, long userID);
+    
 }

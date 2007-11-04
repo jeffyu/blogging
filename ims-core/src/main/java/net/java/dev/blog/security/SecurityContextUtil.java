@@ -1,9 +1,9 @@
 /**
  * 
  */
-package net.java.dev.blog.security.ui;
+package net.java.dev.blog.security;
 
-import net.java.dev.blog.service.User;
+import net.java.dev.blog.model.User;
 
 import org.acegisecurity.AccessDeniedException;
 import org.acegisecurity.Authentication;
@@ -21,14 +21,14 @@ public class SecurityContextUtil {
 	private SecurityContextUtil(){
 	}
 	
-	public static User getBloggingUser() {		
+	public static User getCurrentUser() {		
 		User currentUser = null;
 		SecurityContext ctx = SecurityContextHolder.getContext();
 		Authentication authentication = ctx.getAuthentication();
 		if (authentication.getPrincipal() instanceof UserDetails) {
-			currentUser = ((SSOUserDetail)authentication.getPrincipal()).getBloggingUser();
+			currentUser = ((UsersDetailImpl)authentication.getPrincipal()).getUser();
 		} else if (authentication.getDetails() instanceof UserDetails) {
-			currentUser = ((SSOUserDetail)authentication.getDetails()).getBloggingUser();
+			currentUser = ((UsersDetailImpl)authentication.getDetails()).getUser();
 		} else {
 			throw new AccessDeniedException("User not properly authenticated.");
 		}

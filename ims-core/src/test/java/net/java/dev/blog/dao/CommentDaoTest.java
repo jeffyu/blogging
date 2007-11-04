@@ -45,7 +45,7 @@ public class CommentDaoTest extends BaseDBUnitTest {
 		long addedCommentID = addedComment.getCommentID();
 		assertEquals(comment.getCommentContent(), commentDao.getComment(addedCommentID).getCommentContent());
 		
-		commentDao.removeComment(addedComment);
+		commentDao.removeComment(addedComment.getCommentID());
 		try {
 			commentDao.getComment(addedCommentID);
 		} catch (EmptyResultDataAccessException e) {

@@ -3,6 +3,7 @@
  */
 package net.java.dev.blog.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class Blog {
     private String blogTitle;
     private String blogContent;
     private Date blogDate;
-    private List<Comment> comments;
-    private List<Label> labels;
+    private List<Comment> comments = new ArrayList<Comment>();
+    private List<Label> labels = new ArrayList<Label>();
     private User user;
 
     public long getBlogID() {
@@ -83,5 +84,9 @@ public class Blog {
         }
 
         return comments.size();
+    }
+    
+    public void setCommentCount(int commentCount) {
+    	//for jaxb recognize commentCount field;
     }
 }

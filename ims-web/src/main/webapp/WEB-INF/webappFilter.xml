@@ -56,5 +56,41 @@
 			</value>
 		</property>
 	</bean>
+	
+	<bean id="ssoService" class="net.java.dev.blog.security.ui.SSOAuthenticationService">
+	</bean>
+	
+	<bean id="userDetailService" class="net.java.dev.blog.security.ui.UserDetailsServiceImpl">
+		<property name="managerService">
+			<ref bean="wsManagerService" />
+		</property>
+		<property name="ssoService">
+			<ref bean="ssoService" />
+		</property>
+	</bean>
+	
+	<bean id="daoAuthenticationProvider" class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+  		<property name="userDetailsService">
+     		<ref bean="userDetailService"/>
+  		</property>
+	</bean>
+	
+	<bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+	   <property name="providers">
+	      <list>
+	         <ref bean="daoAuthenticationProvider"/>
+	      </list>
+	   </property>
+	</bean>
+	
+	<bean id="accessDecisionManager" class="org.acegisecurity.vote.UnanimousBased">
+		<property name="decisionVoters">
+			<list>
+				<ref bean="roleVoter"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="roleVoter" class="org.acegisecurity.vote.RoleVoter"/>
        
 </beans>

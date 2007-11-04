@@ -108,4 +108,14 @@ public class LabelDAOImpl extends SimpleJdbcDaoSupport implements LabelDAO {
             return label;
         }
     }
+    
+    @SuppressWarnings("unchecked")
+	public Label getLabel(String labelName, long userID) {
+		String sql = "select * from T_LABEL where LABEL_NAME = ? and USER_ID = ?";
+		List<Label> labels = getJdbcTemplate().query(sql, new Object[]{labelName, userID}, new LabelRowMapper());
+		if (labels.size() == 0) {
+			return null;
+		} 
+		return labels.get(0);
+	}
 }

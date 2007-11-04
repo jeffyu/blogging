@@ -17,7 +17,8 @@ public interface CommentDAO {
 
     public Comment createComment(Comment comment);
 
-    public void removeComment(Comment comment);
+    public void removeComment(long commentID);
 
     public List<Comment> getComments(long blogID);
+    
 }

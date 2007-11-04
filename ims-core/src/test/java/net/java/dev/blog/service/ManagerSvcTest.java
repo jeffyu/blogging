@@ -5,6 +5,7 @@ package net.java.dev.blog.service;
 
 import net.java.dev.blog.BaseDBUnitTest;
 import net.java.dev.blog.model.Blog;
+import net.java.dev.blog.model.Label;
 import net.java.dev.blog.model.User;
 
 import org.acegisecurity.Authentication;
@@ -60,9 +61,16 @@ public class ManagerSvcTest extends BaseDBUnitTest {
 		blog.setBlogTitle("unit test");
 		blog.setBlogContent("unit test");
 		
+		Label label = new Label();
+		label.setLabelName("C#");
+		label.setUser(user);
+		
+		blog.getLabels().add(label);
+		
 		Blog addedBlog = managerService.publishBlog(blog, user);
 		
 		assertEquals("unit test", addedBlog.getBlogTitle());
+		assertEquals(1, addedBlog.getLabels().size());
 		
 		managerService.removeBlog(addedBlog.getBlogID(), user);
 		
@@ -71,6 +79,21 @@ public class ManagerSvcTest extends BaseDBUnitTest {
 		} catch (EmptyResultDataAccessException e) {
 			assertTrue(true);
 		}
+		
+	}
+	
+	@Test
+	public void testUpdateBlog() throws Exception {
+		Blog blog = blogService.getBlog(firstBlog.getBlogID());
+		
+		Label label = new Label();
+		label.setLabelName("Erlang");
+		blog.getLabels().clear();
+		blog.getLabels().add(label);
+		
+		managerService.updateBlog(blog, user);
+		blog = blogService.getBlog(firstBlog.getBlogID());
+		assertEquals("Erlang", blog.getLabels().get(0).getLabelName());
 		
 	}
 	

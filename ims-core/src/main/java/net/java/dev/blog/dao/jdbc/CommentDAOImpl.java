@@ -62,9 +62,9 @@ public class CommentDAOImpl extends SimpleJdbcDaoSupport implements CommentDAO {
                    .query(sql, new Object[] { blogID }, new CommentRowMapper());
     }
 
-    public void removeComment(Comment comment) {
+    public void removeComment(long commentID) {
         String sql = "delete from T_COMMENT where COMMENT_ID = ?";
-        getJdbcTemplate().update(sql, new Object[] { comment.getCommentID() });
+        getJdbcTemplate().update(sql, new Object[] {commentID});
     }
 
     public class CommentRowMapper implements ParameterizedRowMapper<Comment> {
@@ -80,4 +80,6 @@ public class CommentDAOImpl extends SimpleJdbcDaoSupport implements CommentDAO {
             return comment;
         }
     }
+    
+    
 }

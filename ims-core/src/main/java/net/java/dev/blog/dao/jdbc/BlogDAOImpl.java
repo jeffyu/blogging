@@ -94,10 +94,10 @@ public class BlogDAOImpl extends SimpleJdbcDaoSupport implements BlogDAO {
             .update(sql, new Object[] { blog.getBlogID(), label.getLabelID() });
     }
 
-    public void removeLabelFromBlog(Blog blog, Label label) {
-        String sql = "delete from T_BLOG_LABEL where BLOG_ID = ? and LABEL_ID = ?";
+    public void removeLabelsFromBlog(Blog blog) {
+        String sql = "delete from T_BLOG_LABEL where BLOG_ID = ?";
         getJdbcTemplate()
-            .update(sql, new Object[] { blog.getBlogID(), label.getLabelID() });
+            .update(sql, new Object[] { blog.getBlogID()});
     }
 
     @SuppressWarnings("unchecked")

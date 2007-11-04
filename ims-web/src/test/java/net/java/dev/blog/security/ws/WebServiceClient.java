@@ -6,11 +6,11 @@ package net.java.dev.blog.security.ws;
 import java.util.List;
 
 import junit.framework.Assert;
-import net.java.dev.blog.model.Blog;
-import net.java.dev.blog.model.Label;
-import net.java.dev.blog.model.User;
+import net.java.dev.blog.service.Blog;
 import net.java.dev.blog.service.BlogService;
+import net.java.dev.blog.service.Label;
 import net.java.dev.blog.service.ManagerService;
+import net.java.dev.blog.service.User;
 
 import org.junit.Before;
 import org.junit.Ignore;

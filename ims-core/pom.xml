@@ -3,13 +3,13 @@
   <parent>
     <artifactId>ims-parent</artifactId>
     <groupId>net.java.dev</groupId>
-    <version>1.0</version>
+    <version>0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion> 
   <groupId>net.java.dev.ims</groupId>
   <artifactId>ims-core</artifactId>
   <name>ims-core</name>
-  <version>1.0</version>
+  <version>0.1</version>
   <packaging>war</packaging>
   <url>http://code.google.com/p/blogging</url>
   <build>

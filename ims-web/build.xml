@@ -13,4 +13,10 @@
 
     <import file="${fant.etc.dir}/ant-inc/format.xml"/>
     <!--property name="private.repository.dir" value="${basedir}/../../../../thirdparty/repository"/-->
+
+    <target name="code.gen">
+	<wsdl2java wsdl.file="blogs.wsdl"/>
+	<wsdl2java jaxws.binding.file="ims-binding.xml" wsdl.file="blogManager.wsdl"/>
+	<antcall target="compile.code.gen"/>
+    </target>
 </project>

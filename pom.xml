@@ -4,7 +4,7 @@
   <groupId>net.java.dev</groupId>
   <artifactId>ims-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.1</version>
+  <version>0.2</version>
   <name>ims</name>
   <url>http://ims.java.dev.net</url>
   
@@ -102,5 +102,6 @@
   <modules>
     <module>ims-web</module>
     <module>ims-core</module>
+    <module>ims-books</module>
   </modules>
 </project>

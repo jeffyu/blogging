@@ -1,22 +1,17 @@
-<?xml version="1.0"?>
-<project>
+<?xml version="1.0"?><project>
   <parent>
     <artifactId>ims-parent</artifactId>
     <groupId>net.java.dev</groupId>
     <version>0.2</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion> 
+  <modelVersion>4.0.0</modelVersion>
   <groupId>net.java.dev.ims</groupId>
-  <artifactId>ims-core</artifactId>
-  <name>ims-core</name>
+  <artifactId>ims-books</artifactId>
+  <name>ims-books</name>
   <version>0.2</version>
-  <packaging>war</packaging>
   <url>http://code.google.com/p/blogging</url>
-  <build>
-    <finalName>ims-blogging</finalName>
-  </build>
   
-  <dependencies>
+ <dependencies>
   
     <dependency>
       <groupId>junit</groupId>
@@ -173,12 +168,6 @@
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-rt-transports-local</artifactId>
         <version>${cxf.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-rt-ws-security</artifactId>
-        <version>${cxf.version}</version>
-    </dependency>  	
+    </dependency> 	
   </dependencies>
-  
 </project>

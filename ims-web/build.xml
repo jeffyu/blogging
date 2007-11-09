@@ -16,7 +16,7 @@
 
     <target name="code.gen">
 	<wsdl2java wsdl.file="blogs.wsdl"/>
-	<wsdl2java jaxws.binding.file="ims-binding.xml" wsdl.file="blogManager.wsdl"/>
+	<wsdl2java options="-b ${src.main.wsdl.dir}/ims-binding.xml" wsdl.file="blogManager.wsdl"/>
 	<antcall target="compile.code.gen"/>
     </target>
 </project>

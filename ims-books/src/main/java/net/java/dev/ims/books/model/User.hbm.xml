@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="net.java.dev.ims.books.model.User" table="T_USER">
+        <id name="userID" column="USER_ID">
+            <generator class="native"/>
+        </id>
+        <property name="userName" column="USER_NAME" />
+        <property name="userEmail" column="USER_EMAIL" />
+        <property name="userPassword" column="USER_PASSWORD" />
+        <property name="userDate" column="USER_DATE" />
+        <property name="loginName" column="LOGIN_NAME" />
+        <property name="authoritiesFromString" column="USER_AUTHORITY" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="net.java.dev.ims.books.model.Book" table="T_BOOK">
+        <id name="bookID" column="BOOK_ID">
+            <generator class="native"/>
+        </id>
+        <property name="bookTitle" column="BOOK_TITLE" />
+        <property name="bookAuthors" column="BOOK_AUTHORS" />
+        <property name="publishedDate" column="PUBLISH_DATE" />
+        <property name="bookPrice" column="BOOK_PRICE" />
+        <property name="createdDate" column="CREATED_DATE" />
+    </class>
+</hibernate-mapping>

@@ -29,6 +29,8 @@ public class Book {
 	
 	private List<Review> reviews = new ArrayList<Review>();
 	
+	private List<Label> labels = new ArrayList<Label>();
+	
 	private double reviewScore;
 
 	public String getBookTitle() {
@@ -102,6 +104,13 @@ public class Book {
 	public void setReviewScore(double reviewScore) {
 		this.reviewScore = reviewScore;
 	}
-	
+
+	public List<Label> getLabels() {
+		return labels;
+	}
+
+	public void setLabels(List<Label> labels) {
+		this.labels = labels;
+	}
 	
 }

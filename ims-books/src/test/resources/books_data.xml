@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='GBK'?>
+<dataset>
+	<T_USER USER_ID='1' login_name='jeff' user_name='jeff.yu' user_email='jeff.yuchang@gmail.com' user_password='jeff' user_date='2007-10-01' user_authority='ROLE_USER,ROLE_ADMIN'/>
+	
+	<T_LABEL LABEL_ID='1' label_name='Computer'/>
+	<T_LABEL LABEL_ID='2' label_name='Living'/>
+	<T_LABEL LABEL_ID='3' label_name='Movies'/>
+	
+	<T_BOOK BOOK_ID='1' USER_ID='1' BOOK_TITLE='RESTful Web Service' PUBLISH_DATE='2007-11-11' BOOK_AUTHORS='chris' BOOK_INTRO='This is the frist book about REST' BOOK_PRICE='40' CREATED_DATE='2007-11-11' REVIEW_ID='1' />
+	
+	<T_REVIEW REVIEW_ID='1' USER_ID='1' REVIEW_CONTENT='This is an excellent book' REVIEW_DATE='2007-11-11' REVIEW_SCORE='5' />
+	
+	<T_BOOK_LABEL LABEL_ID='1' BOOK_ID='1' />	
+	
+</dataset>

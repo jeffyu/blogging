@@ -22,6 +22,8 @@ public class User {
     private String userEmail;
     private Date userDate;
     private List<String> authorities = new ArrayList<String>();
+    private String authoritiesFromString;
+    
 
     public long getUserID() {
         return userID;
@@ -79,21 +81,12 @@ public class User {
         this.authorities = authorities;
     }
 
-    public String getAuthoritiesAsString() {
-        StringBuffer thePrivileges = new StringBuffer();
-
-        for (int i = 0; i < authorities.size(); i++) {
-            thePrivileges.append(authorities.get(i));
-
-            if (i < (authorities.size() - 1)) {
-                thePrivileges.append(COMMA_DELIMETER);
-            }
-        }
-
-        return thePrivileges.toString();
+    public String getAuthoritiesFromString() {
+    	return this.authoritiesFromString;
     }
 
     public void setAuthoritiesFromString(String privileges) {
+    	this.authoritiesFromString = privileges;
         authorities = new ArrayList<String>();
 
         StringTokenizer st = new StringTokenizer(privileges, COMMA_DELIMETER);

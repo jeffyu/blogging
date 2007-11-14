@@ -1,310 +1,320 @@
-<?xml version="1.0" encoding="utf-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.blog.dev.java.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="blogService" targetNamespace="http://service.blog.dev.java.net/">
-  <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.blog.dev.java.net/" xmlns:tns="http://service.blog.dev.java.net/">
-<xs:complexType name="label">
-<xs:sequence>
-<xs:element name="labelID" type="xs:long"/>
-<xs:element minOccurs="0" name="labelName" type="xs:string"/>
-<xs:element minOccurs="0" name="user" type="tns:user"/>
-</xs:sequence>
-</xs:complexType>
-<xs:complexType name="user">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="authorities" nillable="true" type="xs:string"/>
-<xs:element minOccurs="0" name="loginName" type="xs:string"/>
-<xs:element minOccurs="0" name="userDate" type="xs:dateTime"/>
-<xs:element minOccurs="0" name="userEmail" type="xs:string"/>
-<xs:element name="userID" type="xs:long"/>
-<xs:element minOccurs="0" name="userName" type="xs:string"/>
-<xs:element minOccurs="0" name="userPassword" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-<xs:complexType name="blog">
-<xs:sequence>
-<xs:element minOccurs="0" name="blogContent" type="xs:string"/>
-<xs:element minOccurs="0" name="blogDate" type="xs:dateTime"/>
-<xs:element name="blogID" type="xs:long"/>
-<xs:element minOccurs="0" name="blogTitle" type="xs:string"/>
-<xs:element name="commentCount" type="xs:int"/>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="comments" nillable="true" type="tns:comment"/>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="labels" nillable="true" type="tns:label"/>
-<xs:element minOccurs="0" name="user" type="tns:user"/>
-</xs:sequence>
-</xs:complexType>
-<xs:complexType name="comment">
-<xs:sequence>
-<xs:element minOccurs="0" name="blog" type="tns:blog"/>
-<xs:element minOccurs="0" name="commentContent" type="xs:string"/>
-<xs:element minOccurs="0" name="commentDate" type="xs:dateTime"/>
-<xs:element name="commentID" type="xs:long"/>
-<xs:element minOccurs="0" name="commentUserEmail" type="xs:string"/>
-<xs:element minOccurs="0" name="commentUserName" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="AppBizException" type="tns:AppBizException"/>
-<xs:complexType name="AppBizException">
-<xs:sequence>
-<xs:element name="serialVersionUID" nillable="true" type="xs:long"/>
-<xs:element name="code" nillable="true" type="xs:string"/>
-<xs:element name="args" nillable="true" type="ns0:anyTypeArray"/>
-<xs:element name="message" nillable="true" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getLabels" type="tns:getLabels"/>
-<xs:complexType name="getLabels">
-<xs:sequence/>
-</xs:complexType>
-<xs:element name="getLabelsResponse" type="tns:getLabelsResponse"/>
-<xs:complexType name="getLabelsResponse">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:label"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlogsByLabel" type="tns:getBlogsByLabel"/>
-<xs:complexType name="getBlogsByLabel">
-<xs:sequence>
-<xs:element name="arg0" type="xs:long"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlogsByLabelResponse" type="tns:getBlogsByLabelResponse"/>
-<xs:complexType name="getBlogsByLabelResponse">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlog" type="tns:getBlog"/>
-<xs:complexType name="getBlog">
-<xs:sequence>
-<xs:element name="arg0" type="xs:long"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlogResponse" type="tns:getBlogResponse"/>
-<xs:complexType name="getBlogResponse">
-<xs:sequence>
-<xs:element minOccurs="0" name="return" type="tns:blog"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="addComment" type="tns:addComment"/>
-<xs:complexType name="addComment">
-<xs:sequence>
-<xs:element minOccurs="0" name="arg0" type="tns:comment"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="addCommentResponse" type="tns:addCommentResponse"/>
-<xs:complexType name="addCommentResponse">
-<xs:sequence/>
-</xs:complexType>
-<xs:element name="getAllBlogs" type="tns:getAllBlogs"/>
-<xs:complexType name="getAllBlogs">
-<xs:sequence/>
-</xs:complexType>
-<xs:element name="getAllBlogsResponse" type="tns:getAllBlogsResponse"/>
-<xs:complexType name="getAllBlogsResponse">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlogs" type="tns:getBlogs"/>
-<xs:complexType name="getBlogs">
-<xs:sequence>
-<xs:element minOccurs="0" name="arg0" type="tns:user"/>
-</xs:sequence>
-</xs:complexType>
-<xs:element name="getBlogsResponse" type="tns:getBlogsResponse"/>
-<xs:complexType name="getBlogsResponse">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
-</xs:sequence>
-</xs:complexType>
-</xs:schema>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://jaxb.dev.java.net/array">
-<xs:complexType final="#all" name="anyTypeArray">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:anyType"/>
-</xs:sequence>
-</xs:complexType>
-</xs:schema>
-  </wsdl:types>
-  <wsdl:message name="AppBizException">
-    <wsdl:part element="tns:AppBizException" name="AppBizException">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getLabels">
-    <wsdl:part element="tns:getLabels" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="addCommentResponse">
-    <wsdl:part element="tns:addCommentResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getLabelsResponse">
-    <wsdl:part element="tns:getLabelsResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlog">
-    <wsdl:part element="tns:getBlog" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlogsResponse">
-    <wsdl:part element="tns:getBlogsResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlogResponse">
-    <wsdl:part element="tns:getBlogResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlogs">
-    <wsdl:part element="tns:getBlogs" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="addComment">
-    <wsdl:part element="tns:addComment" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getAllBlogsResponse">
-    <wsdl:part element="tns:getAllBlogsResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlogsByLabelResponse">
-    <wsdl:part element="tns:getBlogsByLabelResponse" name="result">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBlogsByLabel">
-    <wsdl:part element="tns:getBlogsByLabel" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getAllBlogs">
-    <wsdl:part element="tns:getAllBlogs" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="BlogService">
-    <wsdl:operation name="getLabels">
-      <wsdl:input message="tns:getLabels" name="getLabels">
-    </wsdl:input>
-      <wsdl:output message="tns:getLabelsResponse" name="getLabelsResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getBlogsByLabel">
-      <wsdl:input message="tns:getBlogsByLabel" name="getBlogsByLabel">
-    </wsdl:input>
-      <wsdl:output message="tns:getBlogsByLabelResponse" name="getBlogsByLabelResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getBlog">
-      <wsdl:input message="tns:getBlog" name="getBlog">
-    </wsdl:input>
-      <wsdl:output message="tns:getBlogResponse" name="getBlogResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="addComment">
-      <wsdl:input message="tns:addComment" name="addComment">
-    </wsdl:input>
-      <wsdl:output message="tns:addCommentResponse" name="addCommentResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getAllBlogs">
-      <wsdl:input message="tns:getAllBlogs" name="getAllBlogs">
-    </wsdl:input>
-      <wsdl:output message="tns:getAllBlogsResponse" name="getAllBlogsResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getBlogs">
-      <wsdl:input message="tns:getBlogs" name="getBlogs">
-    </wsdl:input>
-      <wsdl:output message="tns:getBlogsResponse" name="getBlogsResponse">
-    </wsdl:output>
-      <wsdl:fault message="tns:AppBizException" name="AppBizException">
-    </wsdl:fault>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="blogServiceSoapBinding" type="tns:BlogService">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="getBlogsByLabel">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getBlogsByLabel">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getBlogsByLabelResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getLabels">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getLabels">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getLabelsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getBlog">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getBlog">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getBlogResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="addComment">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="addComment">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="addCommentResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getAllBlogs">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getAllBlogs">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getAllBlogsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-    <wsdl:operation name="getBlogs">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getBlogs">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getBlogsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="AppBizException">
-        <soap:fault name="AppBizException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="blogService">
-    <wsdl:port binding="tns:blogServiceSoapBinding" name="BlogServiceImplPort">
-      <soap:address location="http://localhost:8080/ims-blogging/services/blogs"/>
-    </wsdl:port>
-  </wsdl:service>
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+		  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+		  xmlns:tns="http://service.blog.dev.java.net/" 
+		  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		  name="blogService" 
+		  targetNamespace="http://service.blog.dev.java.net/">
+    <wsdl:types>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		   xmlns:ns0="http://jaxb.dev.java.net/array" 
+		   attributeFormDefault="unqualified" elementFormDefault="unqualified" 
+		   targetNamespace="http://service.blog.dev.java.net/" 
+		   xmlns:tns="http://service.blog.dev.java.net/">
+	    <xs:complexType name="label">
+		<xs:sequence>
+		    <xs:element name="labelID" type="xs:long"/>
+		    <xs:element minOccurs="0" name="labelName" type="xs:string"/>
+		    <xs:element minOccurs="0" name="user" type="tns:user"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:complexType name="user">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="authorities" nillable="true" type="xs:string"/>
+		    <xs:element minOccurs="0" name="loginName" type="xs:string"/>
+		    <xs:element minOccurs="0" name="userDate" type="xs:dateTime"/>
+		    <xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+		    <xs:element name="userID" type="xs:long"/>
+		    <xs:element minOccurs="0" name="userName" type="xs:string"/>
+		    <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:complexType name="blog">
+		<xs:sequence>
+		    <xs:element minOccurs="0" name="blogContent" type="xs:string"/>
+		    <xs:element minOccurs="0" name="blogDate" type="xs:dateTime"/>
+		    <xs:element name="blogID" type="xs:long"/>
+		    <xs:element minOccurs="0" name="blogTitle" type="xs:string"/>
+		    <xs:element name="commentCount" type="xs:int"/>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="comments" nillable="true" type="tns:comment"/>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="labels" nillable="true" type="tns:label"/>
+		    <xs:element minOccurs="0" name="user" type="tns:user"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:complexType name="comment">
+		<xs:sequence>
+		    <xs:element minOccurs="0" name="blog" type="tns:blog"/>
+		    <xs:element minOccurs="0" name="commentContent" type="xs:string"/>
+		    <xs:element minOccurs="0" name="commentDate" type="xs:dateTime"/>
+		    <xs:element name="commentID" type="xs:long"/>
+		    <xs:element minOccurs="0" name="commentUserEmail" type="xs:string"/>
+		    <xs:element minOccurs="0" name="commentUserName" type="xs:string"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="AppBizException" type="tns:AppBizException"/>
+	    <xs:complexType name="AppBizException">
+		<xs:sequence>
+		    <xs:element name="serialVersionUID" nillable="true" type="xs:long"/>
+		    <xs:element name="code" nillable="true" type="xs:string"/>
+		    <xs:element name="args" nillable="true" type="ns0:anyTypeArray"/>
+		    <xs:element name="message" nillable="true" type="xs:string"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getLabels" type="tns:getLabels"/>
+	    <xs:complexType name="getLabels">
+		<xs:sequence/>
+	    </xs:complexType>
+	    <xs:element name="getLabelsResponse" type="tns:getLabelsResponse"/>
+	    <xs:complexType name="getLabelsResponse">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:label"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlogsByLabel" type="tns:getBlogsByLabel"/>
+	    <xs:complexType name="getBlogsByLabel">
+		<xs:sequence>
+		    <xs:element name="arg0" type="xs:long"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlogsByLabelResponse" type="tns:getBlogsByLabelResponse"/>
+	    <xs:complexType name="getBlogsByLabelResponse">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlog" type="tns:getBlog"/>
+	    <xs:complexType name="getBlog">
+		<xs:sequence>
+		    <xs:element name="arg0" type="xs:long"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlogResponse" type="tns:getBlogResponse"/>
+	    <xs:complexType name="getBlogResponse">
+		<xs:sequence>
+		    <xs:element minOccurs="0" name="return" type="tns:blog"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="addComment" type="tns:addComment"/>
+	    <xs:complexType name="addComment">
+		<xs:sequence>
+		    <xs:element minOccurs="0" name="arg0" type="tns:comment"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="addCommentResponse" type="tns:addCommentResponse"/>
+	    <xs:complexType name="addCommentResponse">
+		<xs:sequence/>
+	    </xs:complexType>
+	    <xs:element name="getAllBlogs" type="tns:getAllBlogs"/>
+	    <xs:complexType name="getAllBlogs">
+		<xs:sequence/>
+	    </xs:complexType>
+	    <xs:element name="getAllBlogsResponse" type="tns:getAllBlogsResponse"/>
+	    <xs:complexType name="getAllBlogsResponse">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlogs" type="tns:getBlogs"/>
+	    <xs:complexType name="getBlogs">
+		<xs:sequence>
+		    <xs:element minOccurs="0" name="arg0" type="tns:user"/>
+		</xs:sequence>
+	    </xs:complexType>
+	    <xs:element name="getBlogsResponse" type="tns:getBlogsResponse"/>
+	    <xs:complexType name="getBlogsResponse">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:blog"/>
+		</xs:sequence>
+	    </xs:complexType>
+	</xs:schema>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://jaxb.dev.java.net/array">
+	    <xs:complexType final="#all" name="anyTypeArray">
+		<xs:sequence>
+		    <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="xs:anyType"/>
+		</xs:sequence>
+	    </xs:complexType>
+	</xs:schema>
+    </wsdl:types>
+    <wsdl:message name="AppBizException">
+	<wsdl:part element="tns:AppBizException" name="AppBizException">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getLabels">
+	<wsdl:part element="tns:getLabels" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addCommentResponse">
+	<wsdl:part element="tns:addCommentResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getLabelsResponse">
+	<wsdl:part element="tns:getLabelsResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlog">
+	<wsdl:part element="tns:getBlog" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlogsResponse">
+	<wsdl:part element="tns:getBlogsResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlogResponse">
+	<wsdl:part element="tns:getBlogResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlogs">
+	<wsdl:part element="tns:getBlogs" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addComment">
+	<wsdl:part element="tns:addComment" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getAllBlogsResponse">
+	<wsdl:part element="tns:getAllBlogsResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlogsByLabelResponse">
+	<wsdl:part element="tns:getBlogsByLabelResponse" name="result">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBlogsByLabel">
+	<wsdl:part element="tns:getBlogsByLabel" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getAllBlogs">
+	<wsdl:part element="tns:getAllBlogs" name="parameters">
+	</wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="BlogService">
+	<wsdl:operation name="getLabels">
+	    <wsdl:input message="tns:getLabels" name="getLabels">
+	    </wsdl:input>
+	    <wsdl:output message="tns:getLabelsResponse" name="getLabelsResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getBlogsByLabel">
+	    <wsdl:input message="tns:getBlogsByLabel" name="getBlogsByLabel">
+	    </wsdl:input>
+	    <wsdl:output message="tns:getBlogsByLabelResponse" name="getBlogsByLabelResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getBlog">
+	    <wsdl:input message="tns:getBlog" name="getBlog">
+	    </wsdl:input>
+	    <wsdl:output message="tns:getBlogResponse" name="getBlogResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="addComment">
+	    <wsdl:input message="tns:addComment" name="addComment">
+	    </wsdl:input>
+	    <wsdl:output message="tns:addCommentResponse" name="addCommentResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getAllBlogs">
+	    <wsdl:input message="tns:getAllBlogs" name="getAllBlogs">
+	    </wsdl:input>
+	    <wsdl:output message="tns:getAllBlogsResponse" name="getAllBlogsResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getBlogs">
+	    <wsdl:input message="tns:getBlogs" name="getBlogs">
+	    </wsdl:input>
+	    <wsdl:output message="tns:getBlogsResponse" name="getBlogsResponse">
+	    </wsdl:output>
+	    <wsdl:fault message="tns:AppBizException" name="AppBizException">
+	    </wsdl:fault>
+	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="blogServiceSoapBinding" type="tns:BlogService">
+	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:operation name="getBlogsByLabel">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="getBlogsByLabel">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="getBlogsByLabelResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getLabels">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="getLabels">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="getLabelsResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getBlog">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="getBlog">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="getBlogResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="addComment">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="addComment">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="addCommentResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getAllBlogs">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="getAllBlogs">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="getAllBlogsResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+	<wsdl:operation name="getBlogs">
+	    <soap:operation soapAction="" style="document"/>
+	    <wsdl:input name="getBlogs">
+		<soap:body use="literal"/>
+	    </wsdl:input>
+	    <wsdl:output name="getBlogsResponse">
+		<soap:body use="literal"/>
+	    </wsdl:output>
+	    <wsdl:fault name="AppBizException">
+		<soap:fault name="AppBizException" use="literal"/>
+	    </wsdl:fault>
+	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="blogService">
+	<wsdl:port binding="tns:blogServiceSoapBinding" name="BlogServiceImplPort">
+	    <soap:address location="http://localhost:8080/ims-blogging/services/blogs"/>
+	</wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

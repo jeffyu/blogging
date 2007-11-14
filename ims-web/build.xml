@@ -13,9 +13,8 @@
 
     <!--property name="private.repository.dir" value="${basedir}/../../../../thirdparty/repository"/-->
 
-    <target name="code.gen">
-	<wsdl2java wsdl.file="blogs.wsdl"/>
-	<wsdl2java options="-b ${src.main.wsdl.dir}/ims-binding.xml" wsdl.file="blogManager.wsdl"/>
-	<antcall target="compile.code.gen"/>
-    </target>
+<!--     <target name="code.gen"> -->
+<!-- 	<wsdl2java wsdl.file="blogs.wsdl"/> -->
+<!-- 	<wsdl2java options="-b ${src.main.wsdl.dir}/ims-binding.xml" wsdl.file="blogManager.wsdl"/> -->
+<!--     </target> -->
 </project>

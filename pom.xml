@@ -102,6 +102,6 @@
   <modules>
     <module>ims-web</module>
     <module>ims-core</module>
-    <module>ims-books</module>
+    <!--module>ims-books</module-->
   </modules>
 </project>

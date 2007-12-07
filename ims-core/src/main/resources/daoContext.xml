@@ -13,7 +13,7 @@
 			<value>org.gjt.mm.mysql.Driver</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://xiamen:3306/ims?useUnicode=true&amp;characterEncoding=GBK</value>
+			<value>jdbc:mysql://localhost:3306/ims?useUnicode=true&amp;characterEncoding=GBK</value>
 		</property>
 		<property name="username">
 			<value>root</value>

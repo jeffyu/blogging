@@ -2,10 +2,11 @@
 
   <property name="fant.etc.dir" value="${ant.home}/etc/fant"/>
 
+  <property name="project.svn.url" value="https://blogging.googlecode.com/svn/trunk"/>
+  
   <import file="${fant.etc.dir}/ant-inc/master.xml"/>
 
   <fant:modules id="project.modules" builddep="true">
-    <module name="ims-web" buildfile="build.xml"/>
-    <module name="ims-core"/>
+    <module name="*"/>
   </fant:modules>
 </project>

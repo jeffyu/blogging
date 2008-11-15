@@ -4,7 +4,7 @@
   <groupId>net.java.dev</groupId>
   <artifactId>ims-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0</version>
+  <version>0.1</version>
   <name>ims</name>
   <url>http://ims.java.dev.net</url>
   
@@ -77,6 +77,27 @@
       </releases>
     </repository>
   </repositories>
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>apache.incubating.releases</id>
+      <name>Apache Incubating Release Distribution Repository</name>
+      <url>http://people.apache.org/repo/m2-incubating-repository</url>
+    </pluginRepository>
+	<pluginRepository>
+      <id>ibiblio</id>
+      <name>ibiblio repository</name>
+      <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <name>Apache Development Snapshot Repository</name>
+      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
     
   <modules>
     <module>ims-web</module>

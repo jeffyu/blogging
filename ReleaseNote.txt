@@ -1,4 +1,4 @@
-===IMS 0.1 Release(2007/10/05)===
+===IMS 0.1 Release(2007/11/05)===
 Demo functionalities:
 
 ims-core module

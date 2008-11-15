@@ -67,7 +67,7 @@ function changeJcaptchaImage() {
 	    <c:if test="${not empty param.login_error}">
 	    <h1>Your loginName or password is not correct, please try again!</h1>
 		</c:if>
-		<h2>Login Page </h2>
+		<h2>Login Page (using jeff/jeff@iona for test purpose)</h2>
 		<form method="post" action="security_check">
 		  <table width="100%" border="0">
 			<tr>
